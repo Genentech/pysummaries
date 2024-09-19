@@ -1,0 +1,10 @@
+.Pytable1 table, table.Pytable1 {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: fit-content !important;
+}
+
+.Pytable1 caption {
+  caption-side: top;
+  color: black;
+}

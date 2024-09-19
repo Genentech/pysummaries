@@ -1,0 +1,15 @@
+format: jb-book
+root: index
+parts:
+  - caption: Getting the summary as a dataframe
+    chapters:
+      - file: summary_as_dataframe.py
+  - caption: Native Backend 
+    chapters:
+      - file: reportable_quickstart.md
+      - file: reportable_basic_usage.py
+      - file: reportable_css1.py
+      - file: reportable_css2.py
+  - caption: API Reference
+    chapters:
+      - file: api

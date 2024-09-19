@@ -1,0 +1,6 @@
+Instructions on how to build the documentation
+
+1. Run env_setup.sh, this will create a virtualenvironment with the necessary packages
+2. activate the venv: source venv/bin/activate
+3. make all. This will build the book and deploy into the folder ../docs
+4. commit and push the changes

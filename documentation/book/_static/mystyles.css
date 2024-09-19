@@ -1,0 +1,16 @@
+/* This is a CSS file to apply custom styles to our jupyter book
+*/
+
+/* Hide plotnine printing the plot class object after plotting.
+*/
+
+div.p-Widget.jp-RenderedText.jp-mod-trusted.jp-OutputArea-output {
+  display: none;
+}
+
+/* Hide stderr (hide warnings and errors).
+*/
+
+div.stderr.docutils.container {
+  display: none;
+}

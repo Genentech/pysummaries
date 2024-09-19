@@ -1,0 +1,60 @@
+
+<div class="Pytable1_div">
+    {% if customcss %}
+    <style  type="text/css">
+        {{customcss}}
+    </style>
+    {% endif %}
+
+    <table class="Pytable1" data-quarto-disable-processing="true" style="{{styles.get("table")}}" id="{{tabid}}">
+        {% if caption %}
+        <caption class="caption" colspan="{{numcols}}" style="{{styles.get("caption")}}" id="{{tabid}}_caption">{{caption}}</caption>
+        {% endif %}
+        <thead>
+            {% for suphead in superheaders %}
+            <tr>
+                {% for elem in suphead %}
+                <th class="{{elem.classname}}" colspan="{{elem.span}}" style="{{elem.style}}" id="{{elem.idname}}">{{elem.title}}</th>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            <tr>
+                {% for elem in tabheaders %}
+                <th class="{{elem.classname}}" style="{{elem.style}}" id="{{elem.idname}}">
+                  <span class="headerlabel" id="{{elem.idlabelname}}">{{elem.title}}</span>
+                  {% if elem.n %}
+                  <br>
+                  <span class="headern" id="{{elem.idNname}}">(N={{elem.n}})</span>
+                  {% endif %}
+                </th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for block in bodyblocks %}
+            {% for title in block.titles %}
+            <tr>
+              <td class="{{title.classname}}" class="varlabel" colspan="{{numcols}}" style="{{title.style}}" id="{{title.idname}}"> {{title.title}}</td>
+            </tr>
+            {% endfor %}
+            {% for blockrow in block.rows %}
+            <tr>
+              {% if blockrow.label %}
+              <td class="{{blockrow.label.classname}}" style="{{blockrow.label.style}}" id="{{blockrow.label.idname}}">{{blockrow.label.title}}</td>
+              {% endif %}
+              {% for value in blockrow.values %}
+              <td class="{{value.classname}}" style="{{value.style}}" id="{{value.idname}}">{{ value.value }}</td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+        {% endfor %}
+        <tbody>
+        {% if footer %}
+        <tfoot>
+            <tr>
+              <td class="footnote" colspan="{{numcols}}" style="{{styles.get("footnote")}}" id="{{tabid}}_footnote">{{footer}}</td>
+            </tr>
+        </tfoot>
+        {% endif %}
+    </table>
+</div>

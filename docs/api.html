@@ -1,0 +1,852 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>API documentation &#8212; PySummaries</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/mystyles.css?v=1dfc8b58" />
+    <link rel="stylesheet" type="text/css" href="_static/tab1.css?v=6f8edef9" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Advanced custom CSS" href="reportable_css2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">PySummaries</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Welcome to PySumaries documentation!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting the summary as a dataframe</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="summary_as_dataframe.html">Getting the summary as a pandas dataframe</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Native Backend</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="reportable_quickstart.html">Native Backend Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reportable_basic_usage.html">Native Backend basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reportable_css1.html">Custom CSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reportable_css2.html">Advanced custom CSS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">API documentation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/api.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>API documentation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.Pandas2HTMLSummaryTable"><code class="docutils literal notranslate"><span class="pre">Pandas2HTMLSummaryTable</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.Pandas2HTMLSummaryTable.get_raw_html"><code class="docutils literal notranslate"><span class="pre">Pandas2HTMLSummaryTable.get_raw_html()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.calculate_table_summary"><code class="docutils literal notranslate"><span class="pre">calculate_table_summary()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.categorical_n"><code class="docutils literal notranslate"><span class="pre">categorical_n()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.categorical_n_percent"><code class="docutils literal notranslate"><span class="pre">categorical_n_percent()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.categorical_percent"><code class="docutils literal notranslate"><span class="pre">categorical_percent()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.get_sample_data"><code class="docutils literal notranslate"><span class="pre">get_sample_data()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.get_styles"><code class="docutils literal notranslate"><span class="pre">get_styles()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.get_table_summary"><code class="docutils literal notranslate"><span class="pre">get_table_summary()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.numerical_mean_sd"><code class="docutils literal notranslate"><span class="pre">numerical_mean_sd()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.numerical_median_iqr"><code class="docutils literal notranslate"><span class="pre">numerical_median_iqr()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.numerical_median_q1q3"><code class="docutils literal notranslate"><span class="pre">numerical_median_q1q3()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.numerical_min_max"><code class="docutils literal notranslate"><span class="pre">numerical_min_max()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.numerical_missing"><code class="docutils literal notranslate"><span class="pre">numerical_missing()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.pandas_to_report_html"><code class="docutils literal notranslate"><span class="pre">pandas_to_report_html()</span></code></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-pysummaries">
+<span id="api-documentation"></span><h1>API documentation<a class="headerlink" href="#module-pysummaries" title="Link to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pysummaries.Pandas2HTMLSummaryTable">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysummaries.</span></span><span class="sig-name descname"><span class="pre">Pandas2HTMLSummaryTable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">html</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysummaries.Pandas2HTMLSummaryTable" title="Link to this definition">#</a></dt>
+<dd><p>A class to encapsulate the html representation
+of the summary table</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysummaries.Pandas2HTMLSummaryTable.get_raw_html">
+<span class="sig-name descname"><span class="pre">get_raw_html</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysummaries.Pandas2HTMLSummaryTable.get_raw_html" title="Link to this definition">#</a></dt>
+<dd><p>Get the raw HTML string representing the table</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the html as a string</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysummaries.calculate_table_summary">
+<span class="sig-prename descclassname"><span class="pre">pysummaries.</span></span><span class="sig-name descname"><span class="pre">calculate_table_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_overall</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overall_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Overall'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns_include</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns_exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categorical_functions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numerical_functions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rounding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categorical_missing_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Missing'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysummaries.calculate_table_summary" title="Link to this definition">#</a></dt>
+<dd><p>Calculates  a table summary from a pandas dataframe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pandas dataframe</em><em>, </em><em>mandatory</em>) – pandas dataframe from which to calculate the table one</p></li>
+<li><p><strong>strata</strong> (<em>str</em><em>, </em><em>optional</em>) – the name of a column in the dataframe to stratify the table one (columns)</p></li>
+<li><p><strong>show_overall</strong> (<em>bool</em><em>, </em><em>optional</em>) – Show the Overall column. By default True. If False it will take effect only if strata is defined, otherwise ignored</p></li>
+<li><p><strong>columns_labels</strong> (<em>dict</em><em>, </em><em>optional</em>) – A dictionary defining labels for the columns. Keys should be the column name and values a string with the label. Non existing
+columns will be ignored.</p></li>
+<li><p><strong>overall_name</strong> (<em>string</em><em>, </em><em>optional</em>) – name for the column Overall</p></li>
+<li><p><strong>columns_include</strong> (<em>list</em><em>, </em><em>optional</em>) – columns to include in the report, also determines the order of columns in the report</p></li>
+<li><p><strong>columns_exclude</strong> (<em>list</em><em>, </em><em>optional</em>) – columns to exclude from the report</p></li>
+<li><p><strong>categorical_functions</strong> (<em>str</em><em>,  </em><em>list</em><em> or </em><em>tuple</em><em>, </em><em>optional</em>) – if a string, one of the presets for categorical summarization will be applied, by default n_percent. If a tuple or list, 
+the first element must be a function to apply to categorical functions, the second element must be a string or number with the value to report if there are no 
+elements in a categorical level (for example 0 (0%) for n_percent. If None those will be reported as nan.</p></li>
+<li><p><strong>numerical_functions</strong> (<em>str</em><em> or </em><em>dict</em><em>, </em><em>optional</em>) – if a string, one of the presets for numerical summarization will be applied, the default one is ‘meansd_medianq1q3_minmax_missing. 
+If a dictionary it should have a label (as it should appear in the rows index) and as a values 
+functions to apply to the numerical columns of the dataframe. Multiple pairs of labels and functions are supported.</p></li>
+<li><p><strong>rounding</strong> (<em>int</em><em>, </em><em>optional</em>) – number of decimal points to show, by default 1.</p></li>
+<li><p><strong>categorical_missing_level</strong> (<em>str</em><em>, </em><em>optional</em>) – if a categorical column has NAs, they will be replaced by the string indicated here, by default ‘Missing’. That will create a new level 
+in the category. If set to None, the NAs will not be replaced.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the table summary as a pandas dataframe</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas dataframe</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the number of observations for each column in the table summary as a dictionary where keys are column names (strata levels) and 
+the values are the counts as integers.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dictionary</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysummaries</span> <span class="kn">import</span> <span class="n">calculate_table_summary</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tone</span> <span class="o">=</span> <span class="n">calculate_table_summary</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">strata</span><span class="o">=</span><span class="s2">&quot;age_groups&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysummaries.categorical_n">
+<span class="sig-prename descclassname"><span class="pre">pysummaries.</span></span><span class="sig-name descname"><span class="pre">categorical_n</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curseries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rounding</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysummaries.categorical_n" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the N for each category in the series.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>curseries</strong> (<em>pandas series</em>) – series to be summarized</p></li>
+<li><p><strong>rounding</strong> (<em>int</em>) – number of decimal points to show round the results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a series with a numerical or string value per categorical level</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysummaries.categorical_n_percent">
+<span class="sig-prename descclassname"><span class="pre">pysummaries.</span></span><span class="sig-name descname"><span class="pre">categorical_n_percent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curseries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rounding</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysummaries.categorical_n_percent" title="Link to this definition">#</a></dt>
+<dd><p>Calculates “N (%)” fo each category in the series</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>curseries</strong> (<em>pandas series</em>) – series to be summarized</p></li>
+<li><p><strong>rounding</strong> (<em>int</em>) – number of decimal points to show round the results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a series with a numerical or string value per categorical level</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysummaries.categorical_percent">
+<span class="sig-prename descclassname"><span class="pre">pysummaries.</span></span><span class="sig-name descname"><span class="pre">categorical_percent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curseries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rounding</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysummaries.categorical_percent" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the percentage for each category in the series</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>curseries</strong> (<em>pandas series</em>) – series to be summarized</p></li>
+<li><p><strong>rounding</strong> (<em>int</em>) – number of decimal points to show round the results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a series with a numerical or string value per categorical level</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysummaries.get_sample_data">
+<span class="sig-prename descclassname"><span class="pre">pysummaries.</span></span><span class="sig-name descname"><span class="pre">get_sample_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pysummaries.get_sample_data" title="Link to this definition">#</a></dt>
+<dd><p>Gets some data for testing and demo purposes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>sample data</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysummaries.get_styles">
+<span class="sig-prename descclassname"><span class="pre">pysummaries.</span></span><span class="sig-name descname"><span class="pre">get_styles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysummaries.get_styles" title="Link to this definition">#</a></dt>
+<dd><p>Get the dictionary representing the available internal default styles</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>style</strong> (<em>dict</em>) – what style to get. empty contains just keys with empty strings as values. Useful to
+override internal styles.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dictionary with internal class name as key and a string with css styles as values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyreportable</span> <span class="kn">import</span> <span class="n">get_styles</span>  
+<span class="gp">&gt;&gt;&gt; </span><span class="n">style</span> <span class="o">=</span> <span class="n">get_styles</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysummaries.get_table_summary">
+<span class="sig-prename descclassname"><span class="pre">pysummaries.</span></span><span class="sig-name descname"><span class="pre">get_table_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'native'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_overall</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overall_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Overall'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns_include</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns_exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rounding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categorical_functions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numerical_functions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categorical_missing_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Missing'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysummaries.get_table_summary" title="Link to this definition">#</a></dt>
+<dd><p>Calculates a summary table for the pandas dataframe df and returns an object for nice display.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pandas dataframe</em><em>, </em><em>mandatory</em>) – pandas dataframe from which to calculate the table one</p></li>
+<li><p><strong>strata</strong> (<em>str</em><em>, </em><em>optional</em>) – the name of a column in the dataframe to stratify the table one (columns)</p></li>
+<li><p><strong>backend</strong> (<em>str</em><em>, </em><em>optional</em>) – the backend used to display the summary, either ‘native’ or ‘gt’ (great_tables)</p></li>
+<li><p><strong>show_n</strong> (<em>bool</em><em>, </em><em>optional</em>) – Show the number of observations on the column header</p></li>
+<li><p><strong>show_overall</strong> (<em>bool</em><em>, </em><em>optional</em>) – Show the Overall column. By default True. If False it will take effect only if strata is defined, otherwise ignored</p></li>
+<li><p><strong>columns_labels</strong> (<em>dict</em><em>, </em><em>optional</em>) – A dictionary defining labels for the columns. Keys should be the column name and values a string with the label. Non existing
+columns will be ignored.</p></li>
+<li><p><strong>overall_name</strong> (<em>string</em><em>, </em><em>optional</em>) – name for the column Overall</p></li>
+<li><p><strong>columns_include</strong> (<em>list</em><em>, </em><em>optional</em>) – columns to include in the report, also determines the order of columns in the report</p></li>
+<li><p><strong>columns_exclude</strong> (<em>list</em><em>, </em><em>optional</em>) – columns to exclude from the report</p></li>
+<li><p><strong>rounding</strong> (<em>int</em><em>, </em><em>optional</em>) – number of decimal points to show, by default 1.</p></li>
+<li><p><strong>categorical_functions</strong> (<em>str</em><em>,  </em><em>list</em><em> or </em><em>tuple</em><em>, </em><em>optional</em>) – if a string, one of the presets for categorical summarization will be applied, by default n_percent. If a tuple or list, 
+the first element must be a function to apply to categorical functions, the second element must be a string or number with the value to report if there are no 
+elements in a categorical level (for example ‘(0%)’ for n_percent). If None those will be reported as nan.</p></li>
+<li><p><strong>numerical_functions</strong> (<em>str</em><em> or </em><em>dict</em><em>, </em><em>optional</em>) – if a string, one of the presets for numerical summarization will be applied, the default one is ‘meansd_medianq1q3_minmax_missing. 
+If a dictionary it should have a label (as it should appear in the rows index) and as a values 
+functions to apply to the numerical columns of the dataframe. Multiple pairs of labels and functions are supported.</p></li>
+<li><p><strong>categorical_missing_level</strong> (<em>str</em><em>, </em><em>optional</em>) – if a categorical column has NAs, they will be replaced by the string indicated here, by default ‘Missing’. That will create a new level 
+in the category. If set to None, the NAs will not be replaced.</p></li>
+<li><p><strong>kwargs</strong> – keyword arguemnts to pass to the pandas_to_report_html function or the great_tables.GT constructor. See the documentation for those for further details.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An object with the html representation of the table</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pandas2HTMLSummaryTable if backend is native or great_tables.GT if backend is gt</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pysummaries</span> <span class="kn">import</span> <span class="n">get_table_summary</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tone</span> <span class="o">=</span> <span class="n">get_table_summary</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">strata</span><span class="o">=</span><span class="s2">&quot;age_groups&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysummaries.numerical_mean_sd">
+<span class="sig-prename descclassname"><span class="pre">pysummaries.</span></span><span class="sig-name descname"><span class="pre">numerical_mean_sd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curseries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rounding</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysummaries.numerical_mean_sd" title="Link to this definition">#</a></dt>
+<dd><p>Calculates “Mean (SD)” for the numerical series</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>curseries</strong> (<em>pandas series</em>) – series to be summarized</p></li>
+<li><p><strong>rounding</strong> (<em>int</em>) – number of decimal points to show round the results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a single value with the summary for the series</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int, float or string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysummaries.numerical_median_iqr">
+<span class="sig-prename descclassname"><span class="pre">pysummaries.</span></span><span class="sig-name descname"><span class="pre">numerical_median_iqr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curseries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rounding</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysummaries.numerical_median_iqr" title="Link to this definition">#</a></dt>
+<dd><p>Calculates “Median [IQR]” for the numerical series</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>curseries</strong> (<em>pandas series</em>) – series to be summarized</p></li>
+<li><p><strong>rounding</strong> (<em>int</em>) – number of decimal points to show round the results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a single value with the summary for the series</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int, float or string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysummaries.numerical_median_q1q3">
+<span class="sig-prename descclassname"><span class="pre">pysummaries.</span></span><span class="sig-name descname"><span class="pre">numerical_median_q1q3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curseries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rounding</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysummaries.numerical_median_q1q3" title="Link to this definition">#</a></dt>
+<dd><p>Calculates “Median [Q1 ; Q3]” for the numerical series</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>curseries</strong> (<em>pandas series</em>) – series to be summarized</p></li>
+<li><p><strong>rounding</strong> (<em>int</em>) – number of decimal points to show round the results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a single value with the summary for the series</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int, float or string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysummaries.numerical_min_max">
+<span class="sig-prename descclassname"><span class="pre">pysummaries.</span></span><span class="sig-name descname"><span class="pre">numerical_min_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curseries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rounding</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysummaries.numerical_min_max" title="Link to this definition">#</a></dt>
+<dd><p>Calculates “Min ; Max” for the numerical series</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>curseries</strong> (<em>pandas series</em>) – series to be summarized</p></li>
+<li><p><strong>rounding</strong> (<em>int</em>) – number of decimal points to show round the results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a single value with the summary for the series</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int, float or string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysummaries.numerical_missing">
+<span class="sig-prename descclassname"><span class="pre">pysummaries.</span></span><span class="sig-name descname"><span class="pre">numerical_missing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curseries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rounding</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysummaries.numerical_missing" title="Link to this definition">#</a></dt>
+<dd><p>Calculates “N (%)” of missing values (na) for the numerical series</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>curseries</strong> (<em>pandas series</em>) – series to be summarized</p></li>
+<li><p><strong>rounding</strong> (<em>int</em>) – number of decimal points to show round the results</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a single value with the summary for the series</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int, float or string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pysummaries.pandas_to_report_html">
+<span class="sig-prename descclassname"><span class="pre">pysummaries.</span></span><span class="sig-name descname"><span class="pre">pandas_to_report_html</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strat_numbers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">caption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">footer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">customstyles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">customcss</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_styles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">styles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pysummaries.pandas_to_report_html" title="Link to this definition">#</a></dt>
+<dd><p>Generate a nice html table from a pandas dataframe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pandas dataframe</em><em>, </em><em>mandatory</em>) – Pandas dataframe. Can have simple or multi indexes and columns.</p></li>
+<li><p><strong>strat_numbers</strong> (<em>dictionary</em><em>, </em><em>optional</em>) – a dictionary where the key is a column name and value is a number to be displayed as N=xx
+below each column on the table header. If columns are multiindex, then the keys should be 
+a tuple with all the levels of the multiindex.</p></li>
+<li><p><strong>caption</strong> (<em>str</em><em>, </em><em>optional</em>) – caption or title to set for the table.</p></li>
+<li><p><strong>footer</strong> (<em>str</em><em> or </em><em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) – footer for the table. Can be a string or a list of strings. If a list then every element
+will appear in a different line.</p></li>
+<li><p><strong>customstyles</strong> (<em>dict</em><em>, </em><em>optional</em>) – dictionary where the keys are our internal classes and values are css styles. These styles
+will be appended to the styles. You can use an empty styles to completely override the defaults
+with your own styles.</p></li>
+<li><p><strong>customcss</strong> (<em>str</em><em>, </em><em>optional</em>) – A string with css targeting classes or ids. It will be pre-pended to the table in a html &lt;style&gt; element
+without any further processing.</p></li>
+<li><p><strong>value_styles</strong> (<em>str</em><em>, </em><em>list</em><em> or </em><em>list</em><em> of </em><em>lists</em><em>, </em><em>numpy 2d array</em><em> or </em><em>pandas dataframe</em>) – css styles to apply to values, it will be appended to the “values” styles from the default styles. If a 2D structure
+each element represents the style for the corresponding value in the dataframe. If 1D each element is applied to
+every element on each row. If a string it will be applied to all elements.</p></li>
+<li><p><strong>styles</strong> (<em>str</em><em>, </em><em>{'default'</em><em>, </em><em>'empty'}</em>) – css styles to use. empty has no styles and is used to override all styles with yours.</p></li>
+<li><p><strong>table_id</strong> (<em>str</em><em>, </em><em>optional</em>) – id for the table, and as prefix for ids for every element on the table. If not provided,
+a random id will be generated internally. It can be an empty string.</p></li>
+<li><p><strong>show_index</strong> (<em>bool</em><em>, </em><em>optional</em>) – if False, dataframe indexes (row labels) will not be shown on the table.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>an object encapsulating the html representation of the table formatted in a nice way.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pysummaries.Pandas2HTMLSummaryTable" title="pysummaries.Pandas2HTMLSummaryTable">Pandas2HTMLSummaryTable</a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyreportable</span> <span class="kn">import</span> <span class="n">pandas_to_report_html</span>  
+<span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">pandas_to_report_html</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="reportable_css2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Advanced custom CSS</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.Pandas2HTMLSummaryTable"><code class="docutils literal notranslate"><span class="pre">Pandas2HTMLSummaryTable</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.Pandas2HTMLSummaryTable.get_raw_html"><code class="docutils literal notranslate"><span class="pre">Pandas2HTMLSummaryTable.get_raw_html()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.calculate_table_summary"><code class="docutils literal notranslate"><span class="pre">calculate_table_summary()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.categorical_n"><code class="docutils literal notranslate"><span class="pre">categorical_n()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.categorical_n_percent"><code class="docutils literal notranslate"><span class="pre">categorical_n_percent()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.categorical_percent"><code class="docutils literal notranslate"><span class="pre">categorical_percent()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.get_sample_data"><code class="docutils literal notranslate"><span class="pre">get_sample_data()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.get_styles"><code class="docutils literal notranslate"><span class="pre">get_styles()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.get_table_summary"><code class="docutils literal notranslate"><span class="pre">get_table_summary()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.numerical_mean_sd"><code class="docutils literal notranslate"><span class="pre">numerical_mean_sd()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.numerical_median_iqr"><code class="docutils literal notranslate"><span class="pre">numerical_median_iqr()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.numerical_median_q1q3"><code class="docutils literal notranslate"><span class="pre">numerical_median_q1q3()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.numerical_min_max"><code class="docutils literal notranslate"><span class="pre">numerical_min_max()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.numerical_missing"><code class="docutils literal notranslate"><span class="pre">numerical_missing()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pysummaries.pandas_to_report_html"><code class="docutils literal notranslate"><span class="pre">pandas_to_report_html()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Otto Fajardo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

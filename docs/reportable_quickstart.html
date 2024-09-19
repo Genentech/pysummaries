@@ -1,0 +1,871 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Native Backend Quickstart &#8212; PySummaries</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/mystyles.css?v=1dfc8b58" />
+    <link rel="stylesheet" type="text/css" href="_static/tab1.css?v=6f8edef9" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reportable_quickstart';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Native Backend basic usage" href="reportable_basic_usage.html" />
+    <link rel="prev" title="Getting the summary as a pandas dataframe" href="summary_as_dataframe.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">PySummaries</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Welcome to PySumaries documentation!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting the summary as a dataframe</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="summary_as_dataframe.html">Getting the summary as a pandas dataframe</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Native Backend</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Native Backend Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reportable_basic_usage.html">Native Backend basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reportable_css1.html">Custom CSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reportable_css2.html">Advanced custom CSS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="api.html">API documentation</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/reportable_quickstart.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Native Backend Quickstart</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="native-backend-quickstart">
+<h1>Native Backend Quickstart<a class="headerlink" href="#native-backend-quickstart" title="Link to this heading">#</a></h1>
+<p>This section describes how to use the native backend of PySummaries to generate the html reports.
+The relevant function is pandas_to_report_html. <strong>Any of the parameters for this function can be passed
+to get_table_summary to customize the appearance of the table</strong>.</p>
+<p>Let’s say you have a dataframe “df” (you can display the code generating it).
+It has multiindexes for rows and
+columns. This is the way it gets displayed by default.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;../..&quot;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">nums</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;91 (67.9%)&quot;</span><span class="p">,</span> <span class="s2">&quot;28 (49.1%)&quot;</span><span class="p">,</span> <span class="s2">&quot;7 (50.0%)&quot;</span><span class="p">,</span> <span class="s2">&quot;126 (61.5%)&quot;</span><span class="p">],</span>
+<span class="p">[</span><span class="s2">&quot;43 (32.1%)&quot;</span><span class="p">,</span> <span class="s2">&quot;29 (50.9%)&quot;</span><span class="p">,</span>	<span class="s2">&quot;7 (50.0%)&quot;</span><span class="p">,</span> <span class="s2">&quot;79 (38.5%)&quot;</span><span class="p">],</span>
+<span class="p">[</span><span class="s2">&quot;50.0 (15.9)&quot;</span><span class="p">,</span> <span class="s2">&quot;55.1 (17.9)&quot;</span><span class="p">,</span> <span class="s2">&quot;65.3 (10.9)&quot;</span><span class="p">,</span> <span class="s2">&quot;52.5 (16.7)&quot;</span><span class="p">],</span>
+<span class="p">[</span><span class="s2">&quot;52.0 [4.00, 84.0]&quot;</span><span class="p">,</span> <span class="s2">&quot;56.0 [14.0, 95.0]&quot;</span><span class="p">,</span> <span class="s2">&quot;65.0 [49.0, 86.0]&quot;</span><span class="p">,</span> <span class="s2">&quot;54.0 [4.00, 95.0]&quot;</span><span class="p">],</span>
+<span class="p">[</span><span class="s2">&quot;91 (67.9%)&quot;</span><span class="p">,</span> <span class="s2">&quot;28 (49.1%)&quot;</span><span class="p">,</span> <span class="s2">&quot;7 (50.0%)&quot;</span><span class="p">,</span> <span class="s2">&quot;126 (61.5%)&quot;</span><span class="p">],</span>
+<span class="p">[</span><span class="s2">&quot;43 (32.1%)&quot;</span><span class="p">,</span> <span class="s2">&quot;29 (50.9%)&quot;</span><span class="p">,</span>	<span class="s2">&quot;7 (50.0%)&quot;</span><span class="p">,</span> <span class="s2">&quot;79 (38.5%)&quot;</span><span class="p">],</span>
+<span class="p">[</span><span class="s2">&quot;50.0 (15.9)&quot;</span><span class="p">,</span> <span class="s2">&quot;55.1 (17.9)&quot;</span><span class="p">,</span> <span class="s2">&quot;65.3 (10.9)&quot;</span><span class="p">,</span> <span class="s2">&quot;52.5 (16.7)&quot;</span><span class="p">],</span>
+<span class="p">[</span><span class="s2">&quot;52.0 [4.00, 84.0]&quot;</span><span class="p">,</span> <span class="s2">&quot;56.0 [14.0, 95.0]&quot;</span><span class="p">,</span> <span class="s2">&quot;65.0 [49.0, 86.0]&quot;</span><span class="p">,</span> <span class="s2">&quot;54.0 [4.00, 95.0]&quot;</span><span class="p">]]</span>
+
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;Specific&quot;</span><span class="p">,</span><span class="s2">&quot;Alive&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
+<span class="p">(</span><span class="s2">&quot;Specific&quot;</span><span class="p">,</span><span class="s2">&quot;Death&quot;</span><span class="p">,</span> <span class="s2">&quot;Melanoma death&quot;</span><span class="p">),</span>
+<span class="p">(</span><span class="s2">&quot;Specific&quot;</span><span class="p">,</span><span class="s2">&quot;Death&quot;</span><span class="p">,</span> <span class="s2">&quot;Non-melanoma death&quot;</span><span class="p">),</span>	
+<span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;Overall&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)]</span>
+
+
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;Section 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Gender&quot;</span><span class="p">,</span> <span class="s2">&quot;Male&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Section 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Gender&quot;</span><span class="p">,</span> <span class="s2">&quot;Female&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Section 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Mean (SD)&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Section 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Median [min max]&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Section 2&quot;</span><span class="p">,</span> <span class="s2">&quot;Gender&quot;</span><span class="p">,</span> <span class="s2">&quot;Male&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Section 2&quot;</span><span class="p">,</span> <span class="s2">&quot;Gender&quot;</span><span class="p">,</span> <span class="s2">&quot;Female&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Section 2&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Mean (SD)&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Section 2&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Median [min max]&quot;</span><span class="p">)]</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="n">cols</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="n">rows</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">display</span> 
+
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th colspan="3" halign="left">Specific</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>Alive</th>
+      <th colspan="2" halign="left">Death</th>
+      <th>Overall</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>Melanoma death</th>
+      <th>Non-melanoma death</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="4" valign="top">Section 1</th>
+      <th rowspan="2" valign="top">Gender</th>
+      <th>Male</th>
+      <td>91 (67.9%)</td>
+      <td>28 (49.1%)</td>
+      <td>7 (50.0%)</td>
+      <td>126 (61.5%)</td>
+    </tr>
+    <tr>
+      <th>Female</th>
+      <td>43 (32.1%)</td>
+      <td>29 (50.9%)</td>
+      <td>7 (50.0%)</td>
+      <td>79 (38.5%)</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">Age</th>
+      <th>Mean (SD)</th>
+      <td>50.0 (15.9)</td>
+      <td>55.1 (17.9)</td>
+      <td>65.3 (10.9)</td>
+      <td>52.5 (16.7)</td>
+    </tr>
+    <tr>
+      <th>Median [min max]</th>
+      <td>52.0 [4.00, 84.0]</td>
+      <td>56.0 [14.0, 95.0]</td>
+      <td>65.0 [49.0, 86.0]</td>
+      <td>54.0 [4.00, 95.0]</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">Section 2</th>
+      <th rowspan="2" valign="top">Gender</th>
+      <th>Male</th>
+      <td>91 (67.9%)</td>
+      <td>28 (49.1%)</td>
+      <td>7 (50.0%)</td>
+      <td>126 (61.5%)</td>
+    </tr>
+    <tr>
+      <th>Female</th>
+      <td>43 (32.1%)</td>
+      <td>29 (50.9%)</td>
+      <td>7 (50.0%)</td>
+      <td>79 (38.5%)</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">Age</th>
+      <th>Mean (SD)</th>
+      <td>50.0 (15.9)</td>
+      <td>55.1 (17.9)</td>
+      <td>65.3 (10.9)</td>
+      <td>52.5 (16.7)</td>
+    </tr>
+    <tr>
+      <th>Median [min max]</th>
+      <td>52.0 [4.00, 84.0]</td>
+      <td>56.0 [14.0, 95.0]</td>
+      <td>65.0 [49.0, 86.0]</td>
+      <td>54.0 [4.00, 95.0]</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Not bad … but a bit ugly … let’s improve its appearance with PySummaries pandas_to_report_html function !!!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pysummaries</span> <span class="kn">import</span> <span class="n">pandas_to_report_html</span>  
+
+<span class="c1"># convert the pandas dataframe to the nice html representation</span>
+<span class="c1"># let&#39;s add a caption, foot notes and numbers for columns</span>
+
+<span class="n">caption</span> <span class="o">=</span> <span class="s2">&quot;Table 1: A demo table&quot;</span>
+<span class="n">footers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A foot note&quot;</span><span class="p">,</span> <span class="s2">&quot;Another foot note&quot;</span><span class="p">]</span>
+<span class="n">strat_numbers</span> <span class="o">=</span> <span class="p">{(</span><span class="s2">&quot;Specific&quot;</span><span class="p">,</span><span class="s2">&quot;Alive&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">):</span><span class="s2">&quot;134&quot;</span><span class="p">,</span>
+    <span class="p">(</span><span class="s2">&quot;Specific&quot;</span><span class="p">,</span> <span class="s2">&quot;Death&quot;</span><span class="p">,</span> <span class="s2">&quot;Melanoma death&quot;</span><span class="p">):</span><span class="s2">&quot;57&quot;</span><span class="p">,</span>
+    <span class="p">(</span><span class="s2">&quot;Specific&quot;</span><span class="p">,</span> <span class="s2">&quot;Death&quot;</span><span class="p">,</span> <span class="s2">&quot;Non-melanoma death&quot;</span><span class="p">):</span><span class="s2">&quot;14&quot;</span><span class="p">,</span>	
+    <span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;Overall&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">):</span><span class="s2">&quot;205&quot;</span><span class="p">}</span>
+
+<span class="n">html_table</span> <span class="o">=</span> <span class="n">pandas_to_report_html</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">strat_numbers</span><span class="o">=</span><span class="n">strat_numbers</span><span class="p">)</span>
+
+<span class="c1"># if you are working on jupyternotebook or jupyterbook, </span>
+<span class="c1"># you can display the html directly</span>
+<span class="n">html_table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div class="Pytable1_div">
+    
+
+    <table class="Pytable1" data-quarto-disable-processing="true" style="font-family: Arial, sans-serif; border-collapse: collapse; padding: 0px; margin: 0px;" id="pyt_39676">
+        
+        <thead>
+            
+            <tr>
+                
+                <th class="superheader level_0" colspan="1" style="border-top: 2pt solid black;border-top: 2pt solid black;border-top: 2pt solid black;border-top: 2pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_39676_superheader_level_0_0"></th>
+                
+                <th class="superheader level_0" colspan="3" style="border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_39676_superheader_level_0_1">Specific</th>
+                
+                <th class="superheader level_0" colspan="1" style="border-top: 2pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_39676_superheader_level_0_2"></th>
+                
+            </tr>
+            
+            <tr>
+                
+                <th class="superheader level_1" colspan="1" style="padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_39676_superheader_level_1_0"></th>
+                
+                <th class="superheader level_1" colspan="1" style="padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_39676_superheader_level_1_1">Alive</th>
+                
+                <th class="superheader level_1" colspan="2" style="border-bottom: 1pt solid black;border-bottom: 1pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_39676_superheader_level_1_2">Death</th>
+                
+                <th class="superheader level_1" colspan="1" style="padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_39676_superheader_level_1_3">Overall</th>
+                
+            </tr>
+            
+            <tr>
+                
+                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_39676_header_0">
+                  <span class="headerlabel" id="pyt_39676_headerlabel_0"></span>
+                  
+                </th>
+                
+                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_39676_header_1">
+                  <span class="headerlabel" id="pyt_39676_headerlabel_1"></span>
+                  
+                  <br>
+                  <span class="headern" id="pyt_39676_headern_1">(N=134)</span>
+                  
+                </th>
+                
+                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_39676_header_2">
+                  <span class="headerlabel" id="pyt_39676_headerlabel_2">Melanoma death</span>
+                  
+                  <br>
+                  <span class="headern" id="pyt_39676_headern_2">(N=57)</span>
+                  
+                </th>
+                
+                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_39676_header_3">
+                  <span class="headerlabel" id="pyt_39676_headerlabel_3">Non-melanoma death</span>
+                  
+                  <br>
+                  <span class="headern" id="pyt_39676_headern_3">(N=14)</span>
+                  
+                </th>
+                
+                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_39676_header_4">
+                  <span class="headerlabel" id="pyt_39676_headerlabel_4"></span>
+                  
+                  <br>
+                  <span class="headern" id="pyt_39676_headern_4">(N=205)</span>
+                  
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        
+            
+            <tr>
+              <td class="rowgrouplabel level_0" class="varlabel" colspan="6" style="padding-left: 0.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_39676_rowgrouplabel_level_0_0"> Section 1</td>
+            </tr>
+            
+            <tr>
+              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_39676_rowgrouplabel_level_1_0"> Gender</td>
+            </tr>
+            
+            
+            <tr>
+              
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_39676_rowlabel_0">Male</td>
+              
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_0_col_0">91 (67.9%)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_0_col_1">28 (49.1%)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_0_col_2">7 (50.0%)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_0_col_3">126 (61.5%)</td>
+              
+            </tr>
+            
+            <tr>
+              
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_39676_rowlabel_1">Female</td>
+              
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_1_col_0">43 (32.1%)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_1_col_1">29 (50.9%)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_1_col_2">7 (50.0%)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_1_col_3">79 (38.5%)</td>
+              
+            </tr>
+            
+        
+            
+            <tr>
+              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_39676_rowgrouplabel_level_1_1"> Age</td>
+            </tr>
+            
+            
+            <tr>
+              
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_39676_rowlabel_2">Mean (SD)</td>
+              
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_2_col_0">50.0 (15.9)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_2_col_1">55.1 (17.9)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_2_col_2">65.3 (10.9)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_2_col_3">52.5 (16.7)</td>
+              
+            </tr>
+            
+            <tr>
+              
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_39676_rowlabel_3">Median [min max]</td>
+              
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_3_col_0">52.0 [4.00, 84.0]</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_3_col_1">56.0 [14.0, 95.0]</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_3_col_2">65.0 [49.0, 86.0]</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_3_col_3">54.0 [4.00, 95.0]</td>
+              
+            </tr>
+            
+        
+            
+            <tr>
+              <td class="rowgrouplabel level_0" class="varlabel" colspan="6" style="padding-left: 0.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_39676_rowgrouplabel_level_0_1"> Section 2</td>
+            </tr>
+            
+            <tr>
+              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_39676_rowgrouplabel_level_1_2"> Gender</td>
+            </tr>
+            
+            
+            <tr>
+              
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_39676_rowlabel_4">Male</td>
+              
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_4_col_0">91 (67.9%)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_4_col_1">28 (49.1%)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_4_col_2">7 (50.0%)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_4_col_3">126 (61.5%)</td>
+              
+            </tr>
+            
+            <tr>
+              
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_39676_rowlabel_5">Female</td>
+              
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_5_col_0">43 (32.1%)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_5_col_1">29 (50.9%)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_5_col_2">7 (50.0%)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_5_col_3">79 (38.5%)</td>
+              
+            </tr>
+            
+        
+            
+            <tr>
+              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_39676_rowgrouplabel_level_1_3"> Age</td>
+            </tr>
+            
+            
+            <tr>
+              
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_39676_rowlabel_6">Mean (SD)</td>
+              
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_6_col_0">50.0 (15.9)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_6_col_1">55.1 (17.9)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_6_col_2">65.3 (10.9)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_6_col_3">52.5 (16.7)</td>
+              
+            </tr>
+            
+            <tr>
+              
+              <td class="rowlabel" style="border-bottom: 2pt solid black;padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_39676_rowlabel_7">Median [min max]</td>
+              
+              
+              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_7_col_0">52.0 [4.00, 84.0]</td>
+              
+              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_7_col_1">56.0 [14.0, 95.0]</td>
+              
+              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_7_col_2">65.0 [49.0, 86.0]</td>
+              
+              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39676_value_row_7_col_3">54.0 [4.00, 95.0]</td>
+              
+            </tr>
+            
+        
+        <tbody>
+        
+    </table>
+</div></div></div>
+</div>
+<p>You can add custom css and more!. Explore the documentation to see more examples!</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="summary_as_dataframe.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Getting the summary as a pandas dataframe</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="reportable_basic_usage.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Native Backend basic usage</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Otto Fajardo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

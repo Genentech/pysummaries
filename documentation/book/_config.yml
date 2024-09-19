@@ -1,0 +1,87 @@
+# Book settings
+title: PySummaries
+author: Otto Fajardo
+#logo: img/icon-512.png
+# Auto-exclude files not in the toc
+only_build_toc_files: true
+# any file or folder to exclude should be here, i.e. If you have subfolders with notebooks or scripts that should not be executed.
+# Theoretically only_build_toc_files should be enough, but in case there is something still building, you can include here.
+exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
+
+latex:
+  latex_documents:
+    targetname: book.tex
+    
+#######################################################################################
+# Execution settings
+execute:
+  execute_notebooks         : force  # Whether to execute notebooks at build time. Must be one of ("auto", "force", "cache", "off"). force will make notebooks to be always executed.
+  cache                     : ""    # A path to the jupyter cache that will be used to store execution artifacs. Defaults to `_build/.jupyter_cache/`
+  timeout                   : 3600    # The maximum time (in seconds) each notebook cell is allowed to run.
+  run_in_temp               : false # If `True`, then a temporary directory will be created and used as the command working directory (cwd),
+                                    # otherwise the notebook's parent directory will be the cwd.
+  allow_errors              : false # If `False`, when a code cell raises an error the execution is stopped, otherwise all cells are always run.
+  stderr_output             : remove  # One of 'show', 'remove', 'remove-warn', 'warn', 'error', 'severe'
+
+#######################################################################################
+# Parse and render settings
+parse:
+  myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+    # - amsmath
+    - colon_fence
+    # - deflist
+    - dollarmath
+    # - html_admonition
+    # - html_image
+    - linkify
+    # - replacements
+    # - smartquotes
+    - substitution
+  myst_url_schemes          : [mailto, http, https]  # URI schemes that will be recognised as external URLs in Markdown links
+
+#######################################################################################
+# HTML-specific settings
+html:
+  #favicon                   : "img/icon-32.png"  # A path to a favicon image
+  navbar_number_sections    : True  # Add a number to each section in your left navbar
+  use_edit_page_button      : false  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
+  use_repository_button     : false  # Whether to add a link to your repository button
+  use_issues_button         : false  # Whether to add an "open an issue" button
+  extra_navbar              : Powered by <a href="https://jupyterbook.org">Jupyter Book</a>  # Will be displayed underneath the left navbar.
+  extra_footer              : ""  # Will be displayed underneath the footer.
+  google_analytics_id       : ""  # A GA id that can be used to track book views.
+  home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
+  baseurl                   : ""  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
+  comments:
+    hypothesis              : false
+    utterances              : false
+    
+#######################################################################################
+#######################################################################################
+# Launch button settings
+launch_buttons:
+  notebook_interface        : "jupyterlab"  # The interface interactive links will activate ["classic", "jupyterlab"]
+  binderhub_url             : ""  # The URL of the BinderHub (e.g., https://mybinder.org)
+  jupyterhub_url            : ""  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
+  thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
+  colab_url                 : "" # The URL of Google Colab (e.g., https://colab.research.google.com)
+
+#######################################################################################
+# File formats to be recognized. By default only md and ipynb, so we need to add the 
+# others here. IT requires jupytext as that one does the conversion.
+sphinx:
+  config:
+    # read python scripts
+    nb_custom_formats:
+        .py:
+            - jupytext.reads
+            - fmt: py
+    # for plotly
+    html_js_files:
+    - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
+  extra_extensions:
+    - 'sphinx.ext.autodoc'
+  # this is a trick to get pyreportable in the path, it will raise a warning when building the book
+  local_extensions:
+    pysummaries: ../..
+

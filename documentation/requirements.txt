@@ -1,0 +1,5 @@
+numpy==1.26.4
+pandas==2.2.2
+great_tables==0.11.0
+jupyter-book==1.0.2
+jupytext==1.16.4
