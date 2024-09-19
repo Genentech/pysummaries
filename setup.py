@@ -39,7 +39,7 @@ setup(
     include_package_data=True,
     long_description=long_description,
     long_description_content_type="text/markdown",
-    install_requires=['pandas>=2.0.0', 'great-tables>=0.10.0'],
+    install_requires=['pandas>=2.0.0', 'great-tables>=0.11.0', 'jinja2'],
     classifiers=[
         "Programming Language :: Python",
         "License :: OSI Approved :: Apache Software License",
