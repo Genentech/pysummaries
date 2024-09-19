@@ -3,7 +3,7 @@
 PySummaries is a Python package to easily produce table summarizations
 from pandas dataframes.
 
-For more detailed information, please look at the [documentation](https://improved-adventure-lmroz27.pages.github.io/)
+For more detailed information, please look at the [documentation](https://genentech.github.io/pysummaries/)
 
 ## Installation
  
@@ -53,5 +53,5 @@ display(summary_table)
 
 ![alt text](documentation/images/pysummaries_gt_backend.png)
 
-You can customize your tables! For this and more options, please look at the [documentation](https://improved-adventure-lmroz27.pages.github.io/)
+You can customize your tables! For this and more options, please look at the [documentation](https://genentech.github.io/pysummaries/)
 

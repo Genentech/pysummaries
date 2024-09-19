@@ -27,4 +27,4 @@ __all__ = ['get_table_summary',
         'numerical_mean_sd', 'numerical_median_iqr', 'numerical_median_q1q3', 'numerical_min_max', 
         'numerical_missing', 'get_sample_data', 'pandas_to_report_html', 'get_styles', 'Pandas2HTMLSummaryTable']
 
-__version__ = '0.0.1'
+__version__ = '0.0.1b1'
