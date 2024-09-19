@@ -28,7 +28,7 @@ or our [project homepage](https://github.com/Genentech/pysummaries)
 
 setup(
     name="pysummaries",
-    version='0.0.1a3',
+    version='0.0.1b1',
     author="Otto Fajardo",
     author_email="pleasecontactviagithub@notvalid.com",
     description="Produce table summaries from pandas dataframes",
