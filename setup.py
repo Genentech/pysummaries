@@ -34,7 +34,7 @@ setup(
     description="Produce table summaries from pandas dataframes",
     license="Apache License Version 2.0",
     keywords="pandas tableone table1 python table_summary tables",
-    url="github.roche.com/fajardoo/pysummaries",
+    url="https://github.com/Genentech/pysummaries",
     packages=find_packages(),
     long_description=read('README.md'),
     long_description_content_type="text/markdown",
