@@ -18,17 +18,17 @@ import os
 from setuptools import setup, find_packages
 
 
-# Utility function to read the README file.
-# Used for the long_description.  It's nice, because now 1) we have a top level
-# README file and 2) it's easier to type in the README file than to put a raw
-# string in below ...
-def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+long_description="""
+PySummaries is a Python package to easily produce table summarizations
+from pandas dataframes.
 
+For more detailed information, please look at the [documentation](https://improved-adventure-lmroz27.pages.github.io/)
+or our [project homepage](https://github.com/Genentech/pysummaries)
+"""
 
 setup(
     name="pysummaries",
-    version='0.0.1',
+    version='0.0.1a3',
     author="Otto Fajardo",
     author_email="pleasecontactviagithub@notvalid.com",
     description="Produce table summaries from pandas dataframes",
@@ -36,9 +36,10 @@ setup(
     keywords="pandas tableone table1 python table_summary tables",
     url="https://github.com/Genentech/pysummaries",
     packages=find_packages(),
-    long_description=read('README.md'),
+    include_package_data=True,
+    long_description=long_description,
     long_description_content_type="text/markdown",
-    install_requires=['pandas>=2.0.0', 'great_tables>=0.11.0'],
+    install_requires=['pandas>=2.0.0', 'great-tables>=0.10.0'],
     classifiers=[
         "Programming Language :: Python",
         "License :: OSI Approved :: Apache Software License",
