@@ -23,9 +23,16 @@ numeric_types = {np.dtype('int32'), np.dtype('int16'), np.dtype('int8'), np.dtyp
             pd.Int8Dtype(), pd.Int16Dtype(), pd.Int32Dtype(), pd.UInt8Dtype(), pd.UInt16Dtype(),
              np.dtype('int64'), np.dtype('uint64'), np.dtype('uint32'), np.dtype('float'),
                np.int64, np.uint64, np.uint32, np.float64, pd.Int64Dtype(), pd.UInt32Dtype(), pd.UInt64Dtype(),
-               pd.Float64Dtype(), pd.Float32Dtype()}
-datetime_types = {datetime.datetime, np.datetime64, np.dtype('<M8[ns]'), np.datetime64}
-categorical_types = {pd.core.dtypes.dtypes.CategoricalDtype, bool}
+               pd.Float64Dtype(), pd.Float32Dtype(),
+            'int8[pyarrow]', 'int16[pyarrow]', 'int32[pyarrow]', 'int64[pyarrow]',
+            'uint8[pyarrow]', 'uint16[pyarrow]', 'uint32[pyarrow]', 'uint64[pyarrow]',
+            'float32[pyarrow]', 'float64[pyarrow]', 'double[pyarrow]',
+
+
+     }
+string_types = {'string[pyarrow]', 'large_string[pyarrow]'}
+datetime_types = {datetime.datetime, np.datetime64, np.dtype('<M8[ns]'), np.datetime64, }
+categorical_types = {pd.core.dtypes.dtypes.CategoricalDtype, bool, 'bool_[pyarrow]'}
 
 
 def detect_df_col_types(df):
@@ -40,7 +47,11 @@ def detect_df_col_types(df):
 
     results = dict()
     for colname, coltype in zip(columns, types):
+        #print(colname, coltype)
         if coltype in categorical_types:
+            results[colname] = "categorical"
+            continue
+        elif coltype in string_types:
             results[colname] = "categorical"
             continue
         elif coltype in numeric_types:

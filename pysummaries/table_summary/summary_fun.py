@@ -87,10 +87,14 @@ def numerical_mean_sd(curseries, rounding):
     :return: a single value with the summary for the series
     :rtype: int, float or string
     """
-    mean = str(round(curseries.mean(), 1))
+    mean = curseries.mean()
     std = curseries.std()
     if rounding is not None:
-        std = round(std, rounding)
+        if not pd.isna(mean):
+            mean = round(mean, rounding)
+        if not pd.isna(std):
+            std = round(std, rounding)
+    mean = str(mean)
     std = " (" + str(std) + ")"
     return mean + std
 
@@ -108,8 +112,10 @@ def numerical_median_iqr(curseries, rounding):
     median = curseries.median()
     iqr = curseries.quantile(0.75) - curseries.quantile(0.25)
     if rounding is not None:
-        median = round(median, rounding)
-        iqr = round(iqr, rounding)
+        if not pd.isna(median):
+            median = round(median, rounding)
+        if not pd.isna(iqr):
+            iqr = round(iqr, rounding)
     median = str(median)
     iqr = " [" + str(iqr) + "]"
     return median + iqr
@@ -129,9 +135,12 @@ def numerical_median_q1q3(curseries, rounding):
     q1 = curseries.quantile(0.25)
     q3 = curseries.quantile(0.75)
     if rounding is not None:
-        median = round(median, rounding)
-        q1 = round(q1, rounding)
-        q3 = round(q3, rounding)
+        if not pd.isna(median):
+            median = round(median, rounding)
+        if not pd.isna(q1):
+            q1 = round(q1, rounding)
+        if not pd.isna(q3):
+            q3 = round(q3, rounding)
     median = str(median)
     iqr = " [" + str(q1) +  " ; " + str(q3) + "]"
     return median + iqr
@@ -150,8 +159,10 @@ def numerical_min_max(curseries, rounding):
     minimum = curseries.min()
     maximum = curseries.max()
     if rounding is not None:
-        minimum = round(minimum, rounding)
-        maximum = round(maximum,rounding)
+        if not pd.isna(minimum):
+            minimum = round(minimum, rounding)
+        if not pd.isna(maximum):
+            maximum = round(maximum,rounding)
     minimum = str(minimum)
     maximum = str(maximum)
     return minimum + " ; " + maximum
