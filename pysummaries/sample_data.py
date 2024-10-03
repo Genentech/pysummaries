@@ -21,3 +21,16 @@ def get_sample_data():
     df.loc[100] = [np.nan]*3 + ['Control', 3, True]
     return df
 
+def get_test_data():
+    """
+    Enriches the sample data with further column for testing
+
+    :return: sample data
+    :rtype: pandas dataframe
+    """
+    np.random.seed(42)
+    df = get_sample_data()
+    df['colmissing'] = np.random.random(101) * 100
+    df.loc[df.group=="Experimental", "colmissing"] = np.nan
+    return df
+

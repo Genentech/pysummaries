@@ -17,7 +17,7 @@ from .table_summary import (calculate_table_summary,
         categorical_n, categorical_n_percent, categorical_percent, 
         numerical_mean_sd, numerical_median_iqr, numerical_median_q1q3, numerical_min_max, 
         numerical_missing)
-from .sample_data import get_sample_data
+from .sample_data import get_sample_data, get_test_data
 from .reportable import pandas_to_report_html, get_styles, Pandas2HTMLSummaryTable
 from .pysummaries import get_table_summary
 
@@ -25,6 +25,7 @@ __all__ = ['get_table_summary',
         'calculate_table_summary',
         'categorical_n', 'categorical_n_percent', 'categorical_percent',
         'numerical_mean_sd', 'numerical_median_iqr', 'numerical_median_q1q3', 'numerical_min_max', 
-        'numerical_missing', 'get_sample_data', 'pandas_to_report_html', 'get_styles', 'Pandas2HTMLSummaryTable']
+        'numerical_missing', 'get_sample_data', 'get_test_data',
+           'pandas_to_report_html', 'get_styles', 'Pandas2HTMLSummaryTable']
 
 __version__ = '0.0.1'

@@ -6,14 +6,14 @@ script_folder = os.path.split(os.path.realpath(__file__))[0]
 repo_folder = os.path.split(script_folder)[0]
 sys.path.insert(0, repo_folder)
 
-from pysummaries import (get_table_summary, get_sample_data,
+from pysummaries import (get_table_summary, get_test_data,
         calculate_table_summary, 
         )
 
 
 
 table_id = "pyt_1234"
-df = get_sample_data()
+df = get_test_data()
 
 summary_table_df = calculate_table_summary(df, strata='group')
 summary_table_html = get_table_summary(df, strata='group', backend='native', table_id=table_id).get_raw_html()

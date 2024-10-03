@@ -41,7 +41,7 @@ class TestBasic(unittest.TestCase):
 
     def _prepare_data(self):
 
-        self.sample_data = pysummaries.get_sample_data()
+        self.sample_data = pysummaries.get_test_data()
         # we do not convert integers, because in the sample data the age is float as it has a nan
         sample_data_pyarrow = self.sample_data.convert_dtypes(dtype_backend="pyarrow", convert_integer=False)
         sample_data_pyarrow['procedures'] = sample_data_pyarrow['procedures'].convert_dtypes(dtype_backend="pyarrow")
