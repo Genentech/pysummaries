@@ -1,2 +1,5 @@
 # 0.0.1
+* Added support for pyarrow pandas dtypes
+
+# 0.0.1b1
 * First version

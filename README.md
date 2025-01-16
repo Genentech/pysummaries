@@ -20,12 +20,11 @@ Let's take a look at the data:
 
 ```python
 import pandas as pd
-from IPython.display import display, Markdown
 
 from pysummaries import get_table_summary, get_sample_data
 
 df = get_sample_data()
-display(df)
+df
 ```
 
 ![alt text](documentation/images/pysummaries_sample_data.png)
@@ -39,7 +38,7 @@ Let's start first with the PySummaries native backend:
 
 ```python
 summary_table = get_table_summary(df, strata='group', backend='native')  
-display(summary_table)
+summary_table
 ```
 
 ![alt text](documentation/images/pysummaries_native_backend.png)
@@ -48,7 +47,7 @@ And now, let's try the great tables backend!
 
 ```python
 summary_table = get_table_summary_gt(df, strata='group', backend='gt')  
-display(summary_table)
+summary_table
 ```
 
 ![alt text](documentation/images/pysummaries_gt_backend.png)

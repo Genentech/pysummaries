@@ -63,7 +63,7 @@ def calculate_stats(df, var, functions, coltype, strata=None, stratcat=None, var
         curseries = df.loc[:, var]
     else:
         curseries = df.loc[df[strata]==stratcat, var]
-    if coltype=='categorical' and  categorical_missing_level:
+    if coltype=='categorical' and  categorical_missing_level and any(pd.isna(curseries)):
         curseries = curseries.copy()
         if curseries.dtype.name=='category' and categorical_missing_level not in curseries.cat.categories.to_list():
             cats = curseries.cat.categories.to_list() + [categorical_missing_level]

@@ -36,12 +36,11 @@ sys.path.insert(0, "../..")
 
 # %%
 import pandas as pd
-from IPython.display import display, Markdown
 
 from pysummaries import get_table_summary, get_sample_data
 
 df = get_sample_data()
-display(df)
+df
 
 # %% [markdown]
 # Now, let's do a table one stratifying by group 
@@ -54,14 +53,14 @@ display(df)
 
 # %%
 summary_table = get_table_summary(df, strata='group', backend='native')  
-display(summary_table)
+summary_table
 
 # %% [markdown]
 # And now, let's try the great tables backend!
 
 # %%
 summary_table = get_table_summary(df, strata='group', backend='gt')  
-display(summary_table)
+summary_table
 
 # %% [markdown]
 # In both cases you can enhance the table with more features. For example, let's add a title and footer to the table.
@@ -73,7 +72,7 @@ display(summary_table)
 
 # %%
 summary_table = get_table_summary(df, strata='group', backend='native', caption="<strong>Table 1</strong>", footer="This is the footer")  
-display(summary_table)
+summary_table
 
 # %% [markdown]
 # And now, with the great tables backend:
@@ -86,7 +85,7 @@ summary_table = (get_table_summary(df, strata='group', backend='gt')
                         .tab_source_note(source_note = "This is the footer")
                         .cols_align('center')
 )
-display(summary_table)
+summary_table
 
 # %% [markdown]
 # ## More features
@@ -126,10 +125,10 @@ summary_table
 # Let's bring nice labels for gender and age and exclude region
 labels = {'gender': 'Birth gender, n (%)', 
         "age": 'Age at Index'}
-# we could also specify columns_include
-# column_include = ['age', 'gender']
-cols_exclude = ['region']
-summary_table = get_table_summary(df, strata='group', columns_exclude=cols_exclude, columns_labels=labels)  
+# we could also specify columns_exclude
+cols_include = ['age', 'gender']
+#cols_exclude = ['region']
+summary_table = get_table_summary(df, strata='group', columns_include=cols_include, columns_labels=labels)  
 summary_table
 
 # %% [markdown]
