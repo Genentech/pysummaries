@@ -29,7 +29,7 @@ import great_tables
 # for the great tables test to run properly, we need the version 
 # that was used to build the test data
 # otherwise we skip, as small changes in the html will break the test
-test_great_tables_version = '0.12.0'
+test_great_tables_version = '0.15.0'
 current_great_tables_version = great_tables.__version__
 great_tables_version_match = test_great_tables_version == current_great_tables_version
 
