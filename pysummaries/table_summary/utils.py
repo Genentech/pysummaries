@@ -26,7 +26,7 @@ numeric_types = {np.dtype('int32'), np.dtype('int16'), np.dtype('int8'), np.dtyp
                pd.Float64Dtype(), pd.Float32Dtype(),
             'int8[pyarrow]', 'int16[pyarrow]', 'int32[pyarrow]', 'int64[pyarrow]',
             'uint8[pyarrow]', 'uint16[pyarrow]', 'uint32[pyarrow]', 'uint64[pyarrow]',
-            'float32[pyarrow]', 'float64[pyarrow]', 'double[pyarrow]',
+            'float16[pyarrow]','float32[pyarrow]', 'float64[pyarrow]', 'double[pyarrow]',
 
 
      }

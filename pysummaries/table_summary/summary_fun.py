@@ -122,7 +122,7 @@ def numerical_median_iqr(curseries, rounding):
             iqr = round(iqr, rounding)
     if pd.isna(median):
         median = 'NA'
-    if pd.isna(std):
+    if pd.isna(iqr):
         iqr = 'NA'
     median = str(median)
     iqr = " [" + str(iqr) + "]"
