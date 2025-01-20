@@ -5,4 +5,5 @@ pysummaries/table_summary/__pycache__
 dist
 pysummaries.egg-info/
 documentation/venv
+venv
 
