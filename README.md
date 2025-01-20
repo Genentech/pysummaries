@@ -46,7 +46,7 @@ summary_table
 And now, let's try the great tables backend!
 
 ```python
-summary_table = get_table_summary_gt(df, strata='group', backend='gt')  
+summary_table = get_table_summary(df, strata='group', backend='gt')  
 summary_table
 ```
 
