@@ -18,6 +18,12 @@ Functions to summarise pandas series
 """
 import pandas as pd
 
+
+def _has_valid_values(curseries):
+    """Returns True if the series has at least one non-NaN value."""
+    return curseries.notna().any()
+
+
 def categorical_n(curseries, rounding):
     """
     Calculates the N for each category in the series.
@@ -87,6 +93,8 @@ def numerical_mean_sd(curseries, rounding):
     :return: a single value with the summary for the series
     :rtype: int, float or string
     """
+    if not _has_valid_values(curseries):
+        return 'NA (NA)'
     mean = curseries.mean()
     std = curseries.std()
     if rounding is not None:
@@ -113,6 +121,8 @@ def numerical_median_iqr(curseries, rounding):
     :return: a single value with the summary for the series
     :rtype: int, float or string
     """
+    if not _has_valid_values(curseries):
+        return 'NA [NA]'
     median = curseries.median()
     iqr = curseries.quantile(0.75) - curseries.quantile(0.25)
     if rounding is not None:
@@ -139,6 +149,8 @@ def numerical_median_q1q3(curseries, rounding):
     :return: a single value with the summary for the series
     :rtype: int, float or string
     """
+    if not _has_valid_values(curseries):
+        return 'NA [NA ; NA]'
     median = curseries.median()
     q1 = curseries.quantile(0.25)
     q3 = curseries.quantile(0.75)
@@ -170,6 +182,8 @@ def numerical_min_max(curseries, rounding):
     :return: a single value with the summary for the series
     :rtype: int, float or string
     """
+    if not _has_valid_values(curseries):
+        return 'NA ; NA'
     minimum = curseries.min()
     maximum = curseries.max()
     if rounding is not None:
@@ -200,9 +214,7 @@ def numerical_missing(curseries, rounding):
     perc = 0
     if len(curseries):
         n = len(curseries[pd.isna(curseries)])
-        perc = 100 * (n/len(curseries)) 
+        perc = 100 * (n/len(curseries))
     if rounding is not None:
         perc = round(perc, 1)
     return str(n) + " (" + str(perc) + " %)"
-
-

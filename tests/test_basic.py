@@ -89,9 +89,9 @@ class TestSummaryFunctions(unittest.TestCase):
         self.assertTrue(result.startswith('3.0'))
 
     def test_numerical_mean_sd_all_nan(self):
-        """Verify numerical_mean_sd returns 'NA' when all values are NaN."""
+        """Verify numerical_mean_sd returns 'NA (NA)' when all values are NaN."""
         result = pysummaries.numerical_mean_sd(self.all_nan_series, rounding=1)
-        self.assertIn('NA', result)
+        self.assertEqual(result, 'NA (NA)')
 
     def test_numerical_mean_sd_no_rounding(self):
         """Verify numerical_mean_sd works when rounding is None."""
@@ -117,9 +117,9 @@ class TestSummaryFunctions(unittest.TestCase):
         self.assertEqual(result, '1.0 ; 5.0')
 
     def test_numerical_min_max_all_nan(self):
-        """Verify numerical_min_max returns 'NA' when all values are NaN."""
+        """Verify numerical_min_max returns 'NA ; NA' when all values are NaN."""
         result = pysummaries.numerical_min_max(self.all_nan_series, rounding=1)
-        self.assertIn('NA', result)
+        self.assertEqual(result, 'NA ; NA')
 
     def test_numerical_missing_none(self):
         """Verify numerical_missing reports zero missing when there are no NaNs."""
