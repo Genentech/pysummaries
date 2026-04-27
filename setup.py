@@ -20,7 +20,7 @@ from setuptools import setup, find_packages
 
 long_description="""
 PySummaries is a Python package to easily produce table summarizations
-from pandas dataframes.
+from pandas, polars or PyArrow dataframes.
 
 For more detailed information, please look at the [documentation](https://genentech.github.io/pysummaries/)
 or our [project homepage](https://github.com/Genentech/pysummaries)
@@ -28,10 +28,10 @@ or our [project homepage](https://github.com/Genentech/pysummaries)
 
 setup(
     name="pysummaries",
-    version='0.0.1',
+    version='0.0.2',
     author="Otto Fajardo",
     author_email="pleasecontactviagithub@notvalid.com",
-    description="Produce table summaries from pandas dataframes",
+    description="Produce table summaries from pandas, polars or PyArrow dataframes",
     license="Apache License Version 2.0",
     keywords="pandas tableone table1 python table_summary tables",
     url="https://github.com/Genentech/pysummaries",
@@ -39,7 +39,7 @@ setup(
     include_package_data=True,
     long_description=long_description,
     long_description_content_type="text/markdown",
-    install_requires=['pandas>=2.0.0', 'great-tables>=0.11.0', 'jinja2', 'pyarrow'],
+    install_requires=['pandas>=2.0.0', 'great-tables>=0.11.0', 'jinja2', 'pyarrow', 'narwhals'],
     classifiers=[
         "Programming Language :: Python",
         "License :: OSI Approved :: Apache Software License",

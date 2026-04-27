@@ -21,6 +21,7 @@ import pandas as pd
 
 from .intermediate_representation import df_to_intermediate_rep
 from .styles import get_styles
+from ..table_summary.utils import PySummariesException
 
 dirpath = os.path.dirname(os.path.realpath(__file__))
 
@@ -75,14 +76,14 @@ def pandas_to_report_html(df, strat_numbers=None, caption=None, footer=None, cus
     styles = get_styles(styles)
 
     if customstyles:
-        if type(customstyles) != dict:
-            raise Exception("customstyles must be a dictionary")
+        if not isinstance(customstyles, dict):
+            raise PySummariesException("customstyles must be a dictionary")
         for k, v in styles.items():
             custom = customstyles.get(k)
             if custom:
                 styles[k] = v + custom
 
-    if footer and type(footer) != str:
+    if footer and not isinstance(footer, str):
         footer = "<br>".join(footer)
 
     if table_id is None:
@@ -93,14 +94,14 @@ def pandas_to_report_html(df, strat_numbers=None, caption=None, footer=None, cus
 
     if not value_styles:
         value_styles = None
-    elif type(value_styles) == str:
+    elif isinstance(value_styles, str):
         value_styles = [value_styles] * len(df)
     elif hasattr(value_styles, '__iter__'):
         if len(value_styles) != len(df):
-            raise Exception("value_styles must have the same name of rows and columns as the dataframe")
-        if hasattr(value_styles[0], '__iter__') and type(value_styles[0]) != str:
+            raise PySummariesException("value_styles must have the same name of rows and columns as the dataframe")
+        if hasattr(value_styles[0], '__iter__') and not isinstance(value_styles[0], str):
             if len(value_styles[0]) != len(df.columns):
-                raise Exception("value_styles must have the same name of rows and columns as the dataframe")
+                raise PySummariesException("value_styles must have the same name of rows and columns as the dataframe")
         else:
             value_styles = [[x]*len(df.columns) for x in value_styles]
 

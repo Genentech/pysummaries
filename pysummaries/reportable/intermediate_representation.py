@@ -110,7 +110,7 @@ def extract_headers(df, strat_numbers, styles, tabid, show_index=True):
     :return: superheaders, tabheaders, numcols
     """
     cols = df.columns
-    if type(cols) == pd.MultiIndex:
+    if isinstance(cols, pd.MultiIndex):
         superheaders, tabheaders = extract_multiheader(cols, strat_numbers, styles, tabid, show_index=show_index)
     else:
         superheaders, tabheaders = extract_simpleheader(cols, strat_numbers, styles, tabid, show_index=show_index)
@@ -259,7 +259,7 @@ def extract_bodyblocks(df, value_styles, styles, tabid, show_index=True):
     # body
     indexes = df.index
 
-    if type(indexes) == pd.MultiIndex and show_index:
+    if isinstance(indexes, pd.MultiIndex) and show_index:
         bodyblocks = extract_multibodyblocks(indexes, df, value_styles, styles, tabid)
     else:
         bodyblocks = extract_simplebodyblocks(indexes, df, value_styles, styles, tabid, show_index=show_index)

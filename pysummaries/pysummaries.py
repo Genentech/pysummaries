@@ -16,6 +16,7 @@
 from great_tables import GT, html
 
 from .table_summary import calculate_table_summary
+from .table_summary.utils import PySummariesException
 from .reportable import pandas_to_report_html
 
 # TODO:
@@ -25,10 +26,11 @@ def get_table_summary(df, strata=None, backend='native', show_n=True, show_overa
         rounding=1, categorical_functions=None, numerical_functions=None,
         categorical_missing_level='Missing', **kwargs):
     """
-    Calculates a summary table for the pandas dataframe df and returns an object for nice display.
+    Calculates a summary table for a dataframe and returns an object for nice display.
+    Supports pandas, polars and PyArrow dataframes. Non-pandas inputs are converted to pandas internally.
 
-    :param df: pandas dataframe from which to calculate the table one
-    :type df: pandas dataframe, mandatory
+    :param df: dataframe from which to calculate the table one
+    :type df: pandas, polars or PyArrow dataframe, mandatory
     :param strata: the name of a column in the dataframe to stratify the table one (columns)
     :type strata: str, optional
     :param backend: the backend used to display the summary, either 'native' or 'gt' (great_tables)
@@ -70,7 +72,7 @@ def get_table_summary(df, strata=None, backend='native', show_n=True, show_overa
 
     """
     if backend not in ('native', 'gt'):
-        raise Exception(f"Available backends are 'native' or 'gt', got {backend}")
+        raise PySummariesException(f"Available backends are 'native' or 'gt', got {backend}")
 
     tone, strat_numbers = calculate_table_summary(df, strata=strata, show_overall=show_overall, columns_labels=columns_labels, overall_name=overall_name, rounding=rounding, 
             columns_include=columns_include, columns_exclude=columns_exclude,
