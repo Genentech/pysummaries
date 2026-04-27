@@ -435,6 +435,98 @@ class TestIntegration(unittest.TestCase):
 
 
 # ---------------------------------------------------------------------------
+# HTML content tests using BeautifulSoup
+# ---------------------------------------------------------------------------
+class TestHTMLContent(unittest.TestCase):
+
+    def setUp(self):
+        self.df = pd.DataFrame({
+            'group': ['A', 'A', 'B', 'B'],
+            'value': [10.0, 20.0, 30.0, 40.0],
+            'category': ['x', 'y', 'x', 'y'],
+        })
+        self.table_id = 'pyt_html'
+        native_html = pysummaries.get_table_summary(
+            self.df, strata='group', backend='native', table_id=self.table_id
+        ).get_raw_html()
+        self.native_soup = BeautifulSoup(native_html, 'html.parser')
+        gt_html = pysummaries.get_table_summary(
+            self.df, strata='group', backend='gt', id=self.table_id
+        ).as_raw_html()
+        self.gt_soup = BeautifulSoup(gt_html, 'html.parser')
+
+    # -- native backend --
+
+    def test_native_header_labels(self):
+        """Verify native header contains the strata names and Overall."""
+        labels = [s.get_text(strip=True) for s in self.native_soup.select('span.headerlabel')]
+        # First header is empty (row label column), then A, B, Overall
+        self.assertIn('A', labels)
+        self.assertIn('B', labels)
+        self.assertIn('Overall', labels)
+
+    def test_native_header_n_counts(self):
+        """Verify native header shows correct observation counts per stratum."""
+        n_texts = [s.get_text(strip=True) for s in self.native_soup.select('span.headern')]
+        self.assertIn('(N=2)', n_texts)
+        self.assertIn('(N=4)', n_texts)
+
+    def test_native_row_group_labels(self):
+        """Verify native table has row group labels for each variable."""
+        group_labels = [td.get_text(strip=True) for td in self.native_soup.select('td.varlabel')]
+        self.assertIn('value', group_labels)
+        self.assertIn('category', group_labels)
+
+    def test_native_row_labels(self):
+        """Verify native table has the expected stat and category level labels."""
+        row_labels = [td.get_text(strip=True) for td in self.native_soup.select('td.rowlabel')]
+        for expected in ['Mean (SD)', 'Median [Q1 ; Q3]', 'Min ; Max', 'Missing', 'x', 'y']:
+            self.assertIn(expected, row_labels)
+
+    def test_native_cell_values(self):
+        """Verify native table cells contain the correct computed statistics."""
+        cell_values = [td.get_text(strip=True) for td in self.native_soup.select('td.rowvalue')]
+        # Mean (SD) for group A: mean([10,20])=15.0, sd=7.1
+        self.assertIn('15.0 (7.1)', cell_values)
+        # Mean (SD) for group B: mean([30,40])=35.0, sd=7.1
+        self.assertIn('35.0 (7.1)', cell_values)
+        # Mean (SD) overall: mean([10,20,30,40])=25.0, sd=12.9
+        self.assertIn('25.0 (12.9)', cell_values)
+        # Min ; Max overall
+        self.assertIn('10.0 ; 40.0', cell_values)
+        # Category x overall: 2 out of 4 = 50.0%
+        self.assertIn('2 (50.0 %)', cell_values)
+
+    def test_native_table_structure(self):
+        """Verify native table has the correct number of headers and data rows."""
+        headers = self.native_soup.select('th.header')
+        # 4 headers: empty + A + B + Overall
+        self.assertEqual(len(headers), 4)
+        # 6 data rows: 4 numerical stats for 'value' + 2 category levels for 'category'
+        data_rows = self.native_soup.select('td.rowlabel')
+        self.assertEqual(len(data_rows), 6)
+
+    # -- GT backend --
+
+    def test_gt_table_has_expected_values(self):
+        """Verify GT table cells contain the correct computed statistics."""
+        all_td = [td.get_text(strip=True) for td in self.gt_soup.find_all('td')]
+        self.assertIn('15.0 (7.1)', all_td)
+        self.assertIn('35.0 (7.1)', all_td)
+        self.assertIn('25.0 (12.9)', all_td)
+        self.assertIn('10.0 ; 40.0', all_td)
+        self.assertIn('2 (50.0 %)', all_td)
+
+    def test_gt_table_has_column_headers(self):
+        """Verify GT table column headers contain the strata names."""
+        all_th = [th.get_text(strip=True) for th in self.gt_soup.find_all('th')]
+        header_text = ' '.join(all_th)
+        self.assertIn('A', header_text)
+        self.assertIn('B', header_text)
+        self.assertIn('Overall', header_text)
+
+
+# ---------------------------------------------------------------------------
 if __name__ == '__main__':
 
     script_folder = os.path.split(os.path.realpath(__file__))[0]
@@ -447,6 +539,7 @@ if __name__ == '__main__':
     import pysummaries
     from pysummaries.table_summary.utils import detect_df_col_types
     from great_tables import GT
+    from bs4 import BeautifulSoup
 
     print("package location:", pysummaries.__file__)
 
