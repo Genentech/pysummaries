@@ -1,3 +1,7 @@
+# 0.0.2
+* Added support for pandas 3.0 
+* Improved tests, improved code
+
 # 0.0.1
 * Added support for pyarrow pandas dtypes
 

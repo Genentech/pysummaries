@@ -36,7 +36,9 @@ numeric_types = {np.dtype('int32'), np.dtype('int16'), np.dtype('int8'), np.dtyp
 
      }
 string_types = {'string[pyarrow]', 'large_string[pyarrow]'}
-datetime_types = {datetime.datetime, np.datetime64, np.dtype('<M8[ns]'), np.datetime64, }
+datetime_types = {datetime.datetime, np.datetime64,
+                  np.dtype('<M8[s]'), np.dtype('<M8[ms]'),
+                  np.dtype('<M8[us]'), np.dtype('<M8[ns]')}
 categorical_types = {pd.core.dtypes.dtypes.CategoricalDtype, bool, 'bool_[pyarrow]'}
 
 
