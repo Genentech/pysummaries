@@ -1,0 +1,8 @@
+pandas==3.0.2
+numpy==2.4.4
+great-tables==0.21.0
+jinja2==3.1.6
+pyarrow==24.0.0
+beautifulsoup4==4.14.3
+narwhals==2.20.0
+polars==1.40.1

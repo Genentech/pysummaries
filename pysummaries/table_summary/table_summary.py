@@ -15,8 +15,9 @@
 # #############################################################################
 
 import pandas as pd
+import narwhals as nw
 
-from .utils import detect_df_col_types
+from .utils import detect_df_col_types, PySummariesException
 from . import summary_fun as sf
 
 
@@ -78,7 +79,7 @@ def calculate_stats(df, var, functions, coltype, strata=None, stratcat=None, var
             else:
                 curstat.index = pd.MultiIndex.from_tuples([(str(var), str(a)) for a in curstat.index])
         elif coltype == "numerical":
-            if type(curstat) != pd.Series:
+            if not isinstance(curstat, pd.Series):
                 curstat = pd.Series(curstat)
             if var_label:
                 curstat.index = pd.MultiIndex.from_tuples([(str(var_label), str(funlabel))])
@@ -96,10 +97,11 @@ def calculate_table_summary(df, strata=None, show_overall=True, columns_labels=N
         categorical_functions=None, numerical_functions=None, rounding=1, 
         categorical_missing_level='Missing'):
     """
-    Calculates  a table summary from a pandas dataframe.
+    Calculates a table summary from a dataframe.
+    Supports pandas, polars and PyArrow dataframes. Non-pandas inputs are converted to pandas internally.
 
-    :param df: pandas dataframe from which to calculate the table one
-    :type df: pandas dataframe, mandatory
+    :param df: dataframe from which to calculate the table one
+    :type df: pandas, polars or PyArrow dataframe, mandatory
     :param strata: the name of a column in the dataframe to stratify the table one (columns)
     :type strata: str, optional
     :param show_overall: Show the Overall column. By default True. If False it will take effect only if strata is defined, otherwise ignored
@@ -140,51 +142,53 @@ def calculate_table_summary(df, strata=None, show_overall=True, columns_labels=N
     """
 
     if categorical_functions:
-        if type(categorical_functions)==str:
+        if isinstance(categorical_functions, str):
             temp = categorical_presets.get(categorical_functions)
             if not temp:
-                raise Exception(f"categorical preset {categorical_functions} not defined!")
+                raise PySummariesException(f"categorical preset {categorical_functions} not defined!")
             categorical_functions = temp
-        elif type(categorical_functions)==list or type(categorical_functions)==tuple:
+        elif isinstance(categorical_functions, (list, tuple)):
             if len(categorical_functions)!=2:
-                raise Exception("The length of categorical functions must be 2!")
+                raise PySummariesException("The length of categorical functions must be 2!")
             if not callable(categorical_functions[0]):
-                raise Exception("The first element of categorical_functions must be a function")
+                raise PySummariesException("The first element of categorical_functions must be a function")
             #if not type(categorical_functions[1])==str:
-                #raise Exception("The second element of categorical_functions must be a string")
+                #raise PySummariesException("The second element of categorical_functions must be a string")
         else:
-            raise Exception("categorical_functions should be either string, list or tuple")
+            raise PySummariesException("categorical_functions should be either string, list or tuple")
     else:
         categorical_functions = categorical_presets["n_percent"]
 
     if numerical_functions:
-        if type(numerical_functions)==str:
+        if isinstance(numerical_functions, str):
             temp = numerical_presets.get(numerical_functions)
             if not temp:
-                raise Exception(f"numerical preset {numerical_functions} not defined!")
+                raise PySummariesException(f"numerical preset {numerical_functions} not defined!")
             numerical_functions = temp
-        elif type(numerical_functions)==dict:
+        elif isinstance(numerical_functions, dict):
             if not all([callable(x) for x in numerical_functions.values()]):
-                raise Exception("The values of numerical_functions must be functions")
-            if not all([type(x)==str for x in numerical_functions.keys()]):
-                raise Exception("The keys of numerical_functions must be strings")
+                raise PySummariesException("The values of numerical_functions must be functions")
+            if not all([isinstance(x, str) for x in numerical_functions.keys()]):
+                raise PySummariesException("The keys of numerical_functions must be strings")
         else:
-            raise Exception("numerical_functions should be either string or dict")
+            raise PySummariesException("numerical_functions should be either string or dict")
     else:
         numerical_functions = numerical_presets["meansd_medianq1q3_minmax_missing"]
 
 
     coltypes = detect_df_col_types(df)
+    if not isinstance(df, pd.DataFrame):
+        df = nw.from_native(df).to_pandas()
     colnames = df.columns.to_list()
     strat_cats = list()
     if strata is not None:
         if any(pd.isna(df[strata])):
-            raise Exception("strata may not contain missing values")
+            raise PySummariesException("strata may not contain missing values")
         if strata in coltypes and strata in colnames:
             del coltypes[strata]
             colnames.remove(strata)
         else:
-            raise Exception(f"strata column {strata} not found in dataframe")
+            raise PySummariesException(f"strata column {strata} not found in dataframe")
         strat_cats = df[strata].unique()
 
     if columns_include:
@@ -192,10 +196,13 @@ def calculate_table_summary(df, strata=None, show_overall=True, columns_labels=N
     if columns_exclude:
         colnames = [c for c in colnames if c not in columns_exclude]
     if not colnames:
-        raise Exception("No columns left after filtering for columns_include, columns_exclude and strata")
+        raise PySummariesException("No columns left after filtering for columns_include, columns_exclude and strata")
 
     df_list = list()
     strat_numbers = dict()
+    strat_numbers[overall_name] = len(df)
+    for stratcat in strat_cats:
+        strat_numbers[stratcat] = len(df.loc[df[strata]==stratcat])
     for colname in colnames:
         coltype = coltypes[colname]
         var_dict = dict()
@@ -215,9 +222,7 @@ def calculate_table_summary(df, strata=None, show_overall=True, columns_labels=N
         for stratcat in strat_cats:
             curstratdf = calculate_stats(df, colname, curfuns, coltype, strata=strata, stratcat=stratcat, rounding=rounding, var_label=col_label, categorical_missing_level=categorical_missing_level)
             var_dict[stratcat] = curstratdf
-            strat_numbers[stratcat] = len(df.loc[df[strata]==stratcat])
         var_dict[overall_name] = overalldf
-        strat_numbers[overall_name] = len(df)
         var_df = pd.DataFrame(var_dict)
         if coltype == "categorical":
             if catna:

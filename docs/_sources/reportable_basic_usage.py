@@ -31,7 +31,7 @@ sys.path.insert(0, "../..")
 
 # %%
 import pandas as pd
-from IPython.core.display import display
+from IPython.display import display
 
 from pysummaries import pandas_to_report_html
 
