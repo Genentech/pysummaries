@@ -527,6 +527,120 @@ class TestHTMLContent(unittest.TestCase):
 
 
 # ---------------------------------------------------------------------------
+# Polars input tests
+# ---------------------------------------------------------------------------
+class TestPolarsInput(unittest.TestCase):
+
+    def setUp(self):
+        self.pl_df = pl.DataFrame({
+            'group': ['A', 'A', 'B', 'B'],
+            'value': [10.0, 20.0, 30.0, 40.0],
+            'category': ['x', 'y', 'x', 'y'],
+        })
+        self.table_id = 'pyt_polars'
+
+    def test_polars_type_detection(self):
+        """Verify detect_df_col_types works on a polars DataFrame."""
+        result = detect_df_col_types(self.pl_df)
+        self.assertEqual(result['value'], 'numerical')
+        self.assertEqual(result['category'], 'categorical')
+        self.assertEqual(result['group'], 'categorical')
+
+    def test_polars_table_summary_df(self):
+        """Verify calculate_table_summary accepts a polars DataFrame."""
+        sum_table, strat_nums = pysummaries.calculate_table_summary(
+            self.pl_df, strata='group'
+        )
+        self.assertIsInstance(sum_table, pd.DataFrame)
+        self.assertEqual(strat_nums['Overall'], 4)
+        self.assertIn('A', sum_table.columns)
+        self.assertIn('B', sum_table.columns)
+
+    def test_polars_get_table_summary_native(self):
+        """Verify get_table_summary with native backend accepts a polars DataFrame."""
+        result = pysummaries.get_table_summary(
+            self.pl_df, strata='group', backend='native', table_id=self.table_id
+        )
+        self.assertIsInstance(result, pysummaries.Pandas2HTMLSummaryTable)
+        html_str = result.get_raw_html()
+        self.assertIn(self.table_id, html_str)
+        self.assertIn('value', html_str)
+        self.assertIn('category', html_str)
+
+    def test_polars_get_table_summary_gt(self):
+        """Verify get_table_summary with GT backend accepts a polars DataFrame."""
+        result = pysummaries.get_table_summary(
+            self.pl_df, strata='group', backend='gt', id=self.table_id
+        )
+        self.assertIsInstance(result, GT)
+
+    def test_polars_produces_same_results_as_pandas(self):
+        """Verify polars and pandas inputs produce identical summary DataFrames."""
+        pd_df = self.pl_df.to_pandas()
+        sum_pl, nums_pl = pysummaries.calculate_table_summary(self.pl_df, strata='group')
+        sum_pd, nums_pd = pysummaries.calculate_table_summary(pd_df, strata='group')
+        self.assertTrue(sum_pl.equals(sum_pd))
+        self.assertEqual(nums_pl, nums_pd)
+
+
+# ---------------------------------------------------------------------------
+# PyArrow input tests
+# ---------------------------------------------------------------------------
+class TestPyArrowInput(unittest.TestCase):
+
+    def setUp(self):
+        self.pa_table = pa.table({
+            'group': ['A', 'A', 'B', 'B'],
+            'value': [10.0, 20.0, 30.0, 40.0],
+            'category': ['x', 'y', 'x', 'y'],
+        })
+        self.table_id = 'pyt_pyarrow'
+
+    def test_pyarrow_type_detection(self):
+        """Verify detect_df_col_types works on a PyArrow Table."""
+        result = detect_df_col_types(self.pa_table)
+        self.assertEqual(result['value'], 'numerical')
+        self.assertEqual(result['category'], 'categorical')
+        self.assertEqual(result['group'], 'categorical')
+
+    def test_pyarrow_table_summary_df(self):
+        """Verify calculate_table_summary accepts a PyArrow Table."""
+        sum_table, strat_nums = pysummaries.calculate_table_summary(
+            self.pa_table, strata='group'
+        )
+        self.assertIsInstance(sum_table, pd.DataFrame)
+        self.assertEqual(strat_nums['Overall'], 4)
+        self.assertIn('A', sum_table.columns)
+        self.assertIn('B', sum_table.columns)
+
+    def test_pyarrow_get_table_summary_native(self):
+        """Verify get_table_summary with native backend accepts a PyArrow Table."""
+        result = pysummaries.get_table_summary(
+            self.pa_table, strata='group', backend='native', table_id=self.table_id
+        )
+        self.assertIsInstance(result, pysummaries.Pandas2HTMLSummaryTable)
+        html_str = result.get_raw_html()
+        self.assertIn(self.table_id, html_str)
+        self.assertIn('value', html_str)
+        self.assertIn('category', html_str)
+
+    def test_pyarrow_get_table_summary_gt(self):
+        """Verify get_table_summary with GT backend accepts a PyArrow Table."""
+        result = pysummaries.get_table_summary(
+            self.pa_table, strata='group', backend='gt', id=self.table_id
+        )
+        self.assertIsInstance(result, GT)
+
+    def test_pyarrow_produces_same_results_as_pandas(self):
+        """Verify PyArrow and pandas inputs produce identical summary DataFrames."""
+        pd_df = self.pa_table.to_pandas()
+        sum_pa, nums_pa = pysummaries.calculate_table_summary(self.pa_table, strata='group')
+        sum_pd, nums_pd = pysummaries.calculate_table_summary(pd_df, strata='group')
+        self.assertTrue(sum_pa.equals(sum_pd))
+        self.assertEqual(nums_pa, nums_pd)
+
+
+# ---------------------------------------------------------------------------
 if __name__ == '__main__':
 
     script_folder = os.path.split(os.path.realpath(__file__))[0]
@@ -540,6 +654,8 @@ if __name__ == '__main__':
     from pysummaries.table_summary.utils import detect_df_col_types
     from great_tables import GT
     from bs4 import BeautifulSoup
+    import polars as pl
+    import pyarrow as pa
 
     print("package location:", pysummaries.__file__)
 

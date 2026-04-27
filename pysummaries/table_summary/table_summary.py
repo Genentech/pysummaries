@@ -15,6 +15,7 @@
 # #############################################################################
 
 import pandas as pd
+import narwhals as nw
 
 from .utils import detect_df_col_types, PySummariesException
 from . import summary_fun as sf
@@ -96,10 +97,11 @@ def calculate_table_summary(df, strata=None, show_overall=True, columns_labels=N
         categorical_functions=None, numerical_functions=None, rounding=1, 
         categorical_missing_level='Missing'):
     """
-    Calculates  a table summary from a pandas dataframe.
+    Calculates a table summary from a dataframe.
+    Supports pandas, polars and PyArrow dataframes. Non-pandas inputs are converted to pandas internally.
 
-    :param df: pandas dataframe from which to calculate the table one
-    :type df: pandas dataframe, mandatory
+    :param df: dataframe from which to calculate the table one
+    :type df: pandas, polars or PyArrow dataframe, mandatory
     :param strata: the name of a column in the dataframe to stratify the table one (columns)
     :type strata: str, optional
     :param show_overall: Show the Overall column. By default True. If False it will take effect only if strata is defined, otherwise ignored
@@ -175,6 +177,8 @@ def calculate_table_summary(df, strata=None, show_overall=True, columns_labels=N
 
 
     coltypes = detect_df_col_types(df)
+    if not isinstance(df, pd.DataFrame):
+        df = nw.from_native(df).to_pandas()
     colnames = df.columns.to_list()
     strat_cats = list()
     if strata is not None:

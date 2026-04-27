@@ -13,8 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # #############################################################################
-import datetime
-
+import narwhals as nw
 import pandas as pd
 import numpy as np
 
@@ -23,74 +22,54 @@ class PySummariesException(Exception):
     """Base exception for all pysummaries errors."""
     pass
 
-numeric_types = {np.dtype('int32'), np.dtype('int16'), np.dtype('int8'), np.dtype('uint8'), np.dtype('uint16'),
-             np.int32, np.int16, np.int8, np.uint8, np.uint16, int, float,
-            pd.Int8Dtype(), pd.Int16Dtype(), pd.Int32Dtype(), pd.UInt8Dtype(), pd.UInt16Dtype(),
-             np.dtype('int64'), np.dtype('uint64'), np.dtype('uint32'), np.dtype('float'),
-               np.int64, np.uint64, np.uint32, np.float64, pd.Int64Dtype(), pd.UInt32Dtype(), pd.UInt64Dtype(),
-               pd.Float64Dtype(), pd.Float32Dtype(),
-            'int8[pyarrow]', 'int16[pyarrow]', 'int32[pyarrow]', 'int64[pyarrow]',
-            'uint8[pyarrow]', 'uint16[pyarrow]', 'uint32[pyarrow]', 'uint64[pyarrow]',
-            'float16[pyarrow]','float32[pyarrow]', 'float64[pyarrow]', 'double[pyarrow]',
+
+def _is_pandas_object_col(df, col_name):
+    """Check if a column in a pandas DataFrame has object dtype."""
+    if isinstance(df, pd.DataFrame):
+        return df[col_name].dtype == object
+    return False
 
 
-     }
-string_types = {'string[pyarrow]', 'large_string[pyarrow]'}
-datetime_types = {datetime.datetime, np.datetime64,
-                  np.dtype('<M8[s]'), np.dtype('<M8[ms]'),
-                  np.dtype('<M8[us]'), np.dtype('<M8[ns]')}
-categorical_types = {pd.core.dtypes.dtypes.CategoricalDtype, bool, 'bool_[pyarrow]'}
+def _classify_object_col(df, col_name):
+    """Classify a pandas object-dtype column by inspecting its values."""
+    col = df[col_name].dropna()
+    if len(col) == 0:
+        return "numerical"
+    curtype = type(col.iloc[0])
+    equal = np.array(col.apply(lambda x: type(x) == curtype))
+    if not np.all(equal):
+        return "categorical"
+    if curtype == str:
+        return "categorical"
+    if np.issubdtype(type(col.iloc[0]), np.number) or isinstance(col.iloc[0], (int, float)):
+        return "numerical"
+    return "categorical"
 
 
 def detect_df_col_types(df):
     """
-    Gets a dataframe and returns a dictionary with keys being column 
+    Gets a dataframe and returns a dictionary with keys being column
     names from the dataframe and value is the type:
-    categorical, numerical or datetime
+    categorical, numerical or datetime.
+
+    Supports pandas, polars and PyArrow dataframes via narwhals.
+    Other narwhals-compatible backends (e.g. Modin, cuDF) may also work but are untested.
     """
-
-    types = df.dtypes.values.tolist()
-    columns = df.columns.values.tolist()
-
+    nw_df = nw.from_native(df)
     results = dict()
-    for colname, coltype in zip(columns, types):
-        #print(colname, coltype)
-        if coltype in categorical_types:
-            results[colname] = "categorical"
-            continue
-        elif coltype in string_types:
-            results[colname] = "categorical"
-            continue
-        elif coltype in numeric_types:
-            results[colname] = "numerical"
-            continue
-        elif coltype in datetime_types:
-            results[colname] = "datetime"
-        elif coltype == object:
-            col = df[colname].dropna()
-            if len(col):
-                curtype = type(col.iloc[0])
-                equal = np.array(col.apply(lambda x: type(x) == curtype))
-                if not np.all(equal):
-                    results[colname] = "categorical"
-                    continue
-            else:
-                results[colname] = "numerical"
-                continue
-            if curtype in categorical_types:
-                results[colname] = "categorical"
-                continue
-            elif curtype == str:
-                results[colname] = "categorical"
-            elif curtype in numeric_types:
-                results[colname] = "numerical"
-                continue
-            elif curtype in datetime_types:
-                results[colname] = "datetime"
-            else:
-                results[colname] = "categorical"
+    for col_name, dtype in nw_df.schema.items():
+        # For pandas object columns, narwhals may infer a type (e.g. String)
+        # that doesn't reflect the actual mixed content. Use value inspection instead.
+        if _is_pandas_object_col(df, col_name):
+            results[col_name] = _classify_object_col(df, col_name)
+        elif dtype.is_numeric():
+            results[col_name] = "numerical"
+        elif dtype.is_temporal():
+            results[col_name] = "datetime"
+        elif dtype == nw.Boolean or dtype == nw.Categorical or dtype == nw.String or dtype == nw.Enum:
+            results[col_name] = "categorical"
+        elif dtype == nw.Object:
+            results[col_name] = _classify_object_col(df, col_name)
         else:
-            results[colname] = "categorical"
-
+            results[col_name] = "categorical"
     return results
-

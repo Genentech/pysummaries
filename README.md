@@ -1,7 +1,9 @@
 # Welcome to PySumaries documentation!
 
 PySummaries is a Python package to easily produce table summarizations
-from pandas dataframes.
+from pandas, polars or PyArrow dataframes.
+
+Other dataframe libraries supported by [narwhals](https://narwhals-dev.github.io/narwhals/) (e.g. Modin, cuDF) may also work but are untested.
 
 For more detailed information, please look at the [documentation](https://genentech.github.io/pysummaries/)
 

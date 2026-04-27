@@ -26,10 +26,11 @@ def get_table_summary(df, strata=None, backend='native', show_n=True, show_overa
         rounding=1, categorical_functions=None, numerical_functions=None,
         categorical_missing_level='Missing', **kwargs):
     """
-    Calculates a summary table for the pandas dataframe df and returns an object for nice display.
+    Calculates a summary table for a dataframe and returns an object for nice display.
+    Supports pandas, polars and PyArrow dataframes. Non-pandas inputs are converted to pandas internally.
 
-    :param df: pandas dataframe from which to calculate the table one
-    :type df: pandas dataframe, mandatory
+    :param df: dataframe from which to calculate the table one
+    :type df: pandas, polars or PyArrow dataframe, mandatory
     :param strata: the name of a column in the dataframe to stratify the table one (columns)
     :type strata: str, optional
     :param backend: the backend used to display the summary, either 'native' or 'gt' (great_tables)

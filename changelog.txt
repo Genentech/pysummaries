@@ -1,5 +1,6 @@
 # 0.0.2
-* Added support for pandas 3.0 
+* Introduced narwhals as dependency, adds support for pandas 3, polars,
+pyarrow
 * Improved tests, improved code
 
 # 0.0.1
