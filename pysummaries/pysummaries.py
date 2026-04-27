@@ -16,6 +16,7 @@
 from great_tables import GT, html
 
 from .table_summary import calculate_table_summary
+from .table_summary.utils import PySummariesException
 from .reportable import pandas_to_report_html
 
 # TODO:
@@ -70,7 +71,7 @@ def get_table_summary(df, strata=None, backend='native', show_n=True, show_overa
 
     """
     if backend not in ('native', 'gt'):
-        raise Exception(f"Available backends are 'native' or 'gt', got {backend}")
+        raise PySummariesException(f"Available backends are 'native' or 'gt', got {backend}")
 
     tone, strat_numbers = calculate_table_summary(df, strata=strata, show_overall=show_overall, columns_labels=columns_labels, overall_name=overall_name, rounding=rounding, 
             columns_include=columns_include, columns_exclude=columns_exclude,

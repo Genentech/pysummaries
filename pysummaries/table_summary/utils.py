@@ -18,6 +18,11 @@ import datetime
 import pandas as pd
 import numpy as np
 
+
+class PySummariesException(Exception):
+    """Base exception for all pysummaries errors."""
+    pass
+
 numeric_types = {np.dtype('int32'), np.dtype('int16'), np.dtype('int8'), np.dtype('uint8'), np.dtype('uint16'),
              np.int32, np.int16, np.int8, np.uint8, np.uint16, int, float,
             pd.Int8Dtype(), pd.Int16Dtype(), pd.Int32Dtype(), pd.UInt8Dtype(), pd.UInt16Dtype(),

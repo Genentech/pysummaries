@@ -13,8 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # #############################################################################
-from itertools import count
-
 
 class TabSuperHeader:
     """
@@ -78,7 +76,6 @@ class RowLabel:
     """
     Object to represent an item in the most internal row indexes
     """
-    instance_cnt = count(0)
     def __init__(self, title, left_padding, tabid, count, last_row=False, style=""):
         self.title = title
         self.left_padding = left_padding
@@ -117,8 +114,9 @@ class Block:
     Object to represent an Block (group of rows grouped by the most
     external row index)
     """
-    titles = None
-    rows = None
+    def __init__(self):
+        self.titles = None
+        self.rows = None
 
 class Row:
     """

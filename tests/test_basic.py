@@ -264,12 +264,12 @@ class TestCalculateTableSummary(unittest.TestCase):
         """Verify that NaN values in the strata column raise an exception."""
         df = self.df.copy()
         df.loc[0, 'group'] = np.nan
-        with self.assertRaises(Exception):
+        with self.assertRaises(pysummaries.PySummariesException):
             pysummaries.calculate_table_summary(df, strata='group')
 
     def test_invalid_strata_column_raises(self):
         """Verify that a nonexistent strata column raises an exception."""
-        with self.assertRaises(Exception):
+        with self.assertRaises((pysummaries.PySummariesException, KeyError)):
             pysummaries.calculate_table_summary(self.df, strata='nonexistent')
 
     def test_categorical_preset_n(self):
@@ -289,7 +289,7 @@ class TestCalculateTableSummary(unittest.TestCase):
 
     def test_invalid_categorical_preset_raises(self):
         """Verify that an invalid categorical preset name raises an exception."""
-        with self.assertRaises(Exception):
+        with self.assertRaises(pysummaries.PySummariesException):
             pysummaries.calculate_table_summary(
                 self.df, strata='group', categorical_functions='nonexistent'
             )
@@ -345,7 +345,7 @@ class TestGetTableSummary(unittest.TestCase):
 
     def test_invalid_backend_raises(self):
         """Verify that an unsupported backend name raises an exception."""
-        with self.assertRaises(Exception):
+        with self.assertRaises(pysummaries.PySummariesException):
             pysummaries.get_table_summary(self.df, backend='invalid')
 
     def test_show_n_false(self):
