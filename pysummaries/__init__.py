@@ -28,4 +28,4 @@ __all__ = ['get_table_summary',
         'numerical_missing', 'get_sample_data', 'get_test_data',
            'pandas_to_report_html', 'get_styles', 'Pandas2HTMLSummaryTable']
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
