@@ -24,7 +24,7 @@ sys.path.insert(0, "../..")
 
 # %% tags=["hide-input"]
 import pandas as pd
-from IPython.core.display import display, HTML
+from IPython.display import display, HTML
 
 from pysummaries import pandas_to_report_html, get_styles
 # a couple of symbols with html codes or html tags

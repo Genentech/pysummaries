@@ -16,43 +16,46 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/mystyles.css?v=1dfc8b58" />
     <link rel="stylesheet" type="text/css" href="_static/tab1.css?v=6f8edef9" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -67,6 +70,7 @@
     <link rel="prev" title="Native Backend basic usage" href="reportable_basic_usage.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -82,19 +86,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -102,7 +95,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -110,8 +102,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -127,7 +119,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -157,15 +150,11 @@
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -198,9 +187,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -283,7 +277,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -297,25 +291,17 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -368,16 +354,16 @@ to see the code.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
 
-<span class="kn">from</span> <span class="nn">pysummaries</span> <span class="kn">import</span> <span class="n">pandas_to_report_html</span><span class="p">,</span> <span class="n">get_styles</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pysummaries</span><span class="w"> </span><span class="kn">import</span> <span class="n">pandas_to_report_html</span><span class="p">,</span> <span class="n">get_styles</span>
 <span class="c1"># a couple of symbols with html codes or html tags</span>
 <span class="n">dagger</span> <span class="o">=</span> <span class="s2">&quot;&amp;#8224;&quot;</span>
 <span class="n">sup</span> <span class="o">=</span> <span class="s2">&quot;&lt;sup&gt;1&lt;/sup&gt;&quot;</span>
@@ -418,8 +404,6 @@ to see the code.</p>
 </div>
 </div>
 </details>
-<div class="cell_output docutils container">
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -440,70 +424,70 @@ to see the code.</p>
 <div class="Pytable1_div">
     
 
-    <table class="Pytable1" data-quarto-disable-processing="true" style="font-family: Arial, sans-serif; border-collapse: collapse; padding: 0px; margin: 0px;" id="pyt_33164">
+    <table class="Pytable1" data-quarto-disable-processing="true" style="font-family: Arial, sans-serif; border-collapse: collapse; padding: 0px; margin: 0px;" id="pyt_39099">
         
-        <caption class="caption" colspan="6" style="padding: 0px; margin: 0px; text-align: left !important; margin-bottom: 5px;" id="pyt_33164_caption">Table 1: a nice report table with multiple indices and symbols</caption>
+        <caption class="caption" colspan="6" style="padding: 0px; margin: 0px; text-align: left !important; margin-bottom: 5px;" id="pyt_39099_caption">Table 1: a nice report table with multiple indices and symbols</caption>
         
         <thead>
             
             <tr>
                 
-                <th class="superheader level_0" colspan="1" style="border-top: 2pt solid black;border-top: 2pt solid black;border-top: 2pt solid black;border-top: 2pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_33164_superheader_level_0_0"></th>
+                <th class="superheader level_0" colspan="1" style="border-top: 2pt solid black;border-top: 2pt solid black;border-top: 2pt solid black;border-top: 2pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_39099_superheader_level_0_0"></th>
                 
-                <th class="superheader level_0" colspan="3" style="border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_33164_superheader_level_0_1">Specific</th>
+                <th class="superheader level_0" colspan="3" style="border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_39099_superheader_level_0_1">Specific</th>
                 
-                <th class="superheader level_0" colspan="1" style="border-top: 2pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_33164_superheader_level_0_2"></th>
-                
-            </tr>
-            
-            <tr>
-                
-                <th class="superheader level_1" colspan="1" style="padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_33164_superheader_level_1_0"></th>
-                
-                <th class="superheader level_1" colspan="1" style="padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_33164_superheader_level_1_1">Alive &#8224;</th>
-                
-                <th class="superheader level_1" colspan="2" style="border-bottom: 1pt solid black;border-bottom: 1pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_33164_superheader_level_1_2">Death</th>
-                
-                <th class="superheader level_1" colspan="1" style="padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_33164_superheader_level_1_3">Overall</th>
+                <th class="superheader level_0" colspan="1" style="border-top: 2pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_39099_superheader_level_0_2"></th>
                 
             </tr>
             
             <tr>
                 
-                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_33164_header_0">
-                  <span class="headerlabel" id="pyt_33164_headerlabel_0"></span>
+                <th class="superheader level_1" colspan="1" style="padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_39099_superheader_level_1_0"></th>
+                
+                <th class="superheader level_1" colspan="1" style="padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_39099_superheader_level_1_1">Alive &#8224;</th>
+                
+                <th class="superheader level_1" colspan="2" style="border-bottom: 1pt solid black;border-bottom: 1pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_39099_superheader_level_1_2">Death</th>
+                
+                <th class="superheader level_1" colspan="1" style="padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_39099_superheader_level_1_3">Overall</th>
+                
+            </tr>
+            
+            <tr>
+                
+                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_39099_header_0">
+                  <span class="headerlabel" id="pyt_39099_headerlabel_0"></span>
                   
                 </th>
                 
-                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_33164_header_1">
-                  <span class="headerlabel" id="pyt_33164_headerlabel_1"></span>
+                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_39099_header_1">
+                  <span class="headerlabel" id="pyt_39099_headerlabel_1"></span>
                   
                   <br>
-                  <span class="headern" id="pyt_33164_headern_1">(N=134)</span>
+                  <span class="headern" id="pyt_39099_headern_1">(N=134)</span>
                   
                 </th>
                 
-                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_33164_header_2">
-                  <span class="headerlabel" id="pyt_33164_headerlabel_2">Melanoma death</span>
+                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_39099_header_2">
+                  <span class="headerlabel" id="pyt_39099_headerlabel_2">Melanoma death</span>
                   
                   <br>
-                  <span class="headern" id="pyt_33164_headern_2">(N=57)</span>
+                  <span class="headern" id="pyt_39099_headern_2">(N=57)</span>
                   
                 </th>
                 
-                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_33164_header_3">
-                  <span class="headerlabel" id="pyt_33164_headerlabel_3">Non-melanoma death</span>
+                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_39099_header_3">
+                  <span class="headerlabel" id="pyt_39099_headerlabel_3">Non-melanoma death</span>
                   
                   <br>
-                  <span class="headern" id="pyt_33164_headern_3">(N=14)</span>
+                  <span class="headern" id="pyt_39099_headern_3">(N=14)</span>
                   
                 </th>
                 
-                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_33164_header_4">
-                  <span class="headerlabel" id="pyt_33164_headerlabel_4"></span>
+                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_39099_header_4">
+                  <span class="headerlabel" id="pyt_39099_headerlabel_4"></span>
                   
                   <br>
-                  <span class="headern" id="pyt_33164_headern_4">(N=205)</span>
+                  <span class="headern" id="pyt_39099_headern_4">(N=205)</span>
                   
                 </th>
                 
@@ -513,156 +497,156 @@ to see the code.</p>
         
             
             <tr>
-              <td class="rowgrouplabel level_0" class="varlabel" colspan="6" style="padding-left: 0.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_33164_rowgrouplabel_level_0_0"> Section 1</td>
+              <td class="rowgrouplabel level_0" class="varlabel" colspan="6" style="padding-left: 0.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_39099_rowgrouplabel_level_0_0"> Section 1</td>
             </tr>
             
             <tr>
-              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_33164_rowgrouplabel_level_1_0"> Gender</td>
-            </tr>
-            
-            
-            <tr>
-              
-              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_33164_rowlabel_0">Male</td>
-              
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_33164_value_row_0_col_0">91 (67.9%) <sup>1</sup></td>
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_33164_value_row_0_col_1">28 (49.1%)</td>
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_33164_value_row_0_col_2">7 (50.0%)</td>
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_33164_value_row_0_col_3">126 (61.5%)</td>
-              
-            </tr>
-            
-            <tr>
-              
-              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_33164_rowlabel_1">Female</td>
-              
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_33164_value_row_1_col_0">43 (32.1%)</td>
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_33164_value_row_1_col_1">29 (50.9%)</td>
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_33164_value_row_1_col_2">7 (50.0%)</td>
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_33164_value_row_1_col_3">79 (38.5%)</td>
-              
-            </tr>
-            
-        
-            
-            <tr>
-              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_33164_rowgrouplabel_level_1_1"> Age</td>
+              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_39099_rowgrouplabel_level_1_0"> Gender</td>
             </tr>
             
             
             <tr>
               
-              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_33164_rowlabel_2">Mean (SD)</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_39099_rowlabel_0">Male</td>
               
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_33164_value_row_2_col_0">50.0 (15.9)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39099_value_row_0_col_0">91 (67.9%) <sup>1</sup></td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_33164_value_row_2_col_1">55.1 (17.9)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39099_value_row_0_col_1">28 (49.1%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_33164_value_row_2_col_2">65.3 (10.9)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39099_value_row_0_col_2">7 (50.0%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_33164_value_row_2_col_3">52.5 (16.7)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39099_value_row_0_col_3">126 (61.5%)</td>
               
             </tr>
             
             <tr>
               
-              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_33164_rowlabel_3">Median [min max]</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_39099_rowlabel_1">Female</td>
               
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_33164_value_row_3_col_0">52.0 [4.00, 84.0] <sub>2</sub></td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_39099_value_row_1_col_0">43 (32.1%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_33164_value_row_3_col_1">56.0 [14.0, 95.0]</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_39099_value_row_1_col_1">29 (50.9%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_33164_value_row_3_col_2">65.0 [49.0, 86.0]</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_39099_value_row_1_col_2">7 (50.0%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_33164_value_row_3_col_3">54.0 [4.00, 95.0]</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_39099_value_row_1_col_3">79 (38.5%)</td>
               
             </tr>
             
         
             
             <tr>
-              <td class="rowgrouplabel level_0" class="varlabel" colspan="6" style="padding-left: 0.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_33164_rowgrouplabel_level_0_1"> Section 2</td>
-            </tr>
-            
-            <tr>
-              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_33164_rowgrouplabel_level_1_2"> Gender</td>
+              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_39099_rowgrouplabel_level_1_1"> Age</td>
             </tr>
             
             
             <tr>
               
-              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_33164_rowlabel_4">Male</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_39099_rowlabel_2">Mean (SD)</td>
               
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_33164_value_row_4_col_0">91 (67.9%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39099_value_row_2_col_0">50.0 (15.9)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_33164_value_row_4_col_1">28 (49.1%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39099_value_row_2_col_1">55.1 (17.9)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_33164_value_row_4_col_2">7 (50.0%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39099_value_row_2_col_2">65.3 (10.9)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_33164_value_row_4_col_3">126 (61.5%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39099_value_row_2_col_3">52.5 (16.7)</td>
               
             </tr>
             
             <tr>
               
-              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_33164_rowlabel_5">Female</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_39099_rowlabel_3">Median [min max]</td>
               
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_33164_value_row_5_col_0">43 (32.1%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_39099_value_row_3_col_0">52.0 [4.00, 84.0] <sub>2</sub></td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_33164_value_row_5_col_1">29 (50.9%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_39099_value_row_3_col_1">56.0 [14.0, 95.0]</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_33164_value_row_5_col_2">7 (50.0%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_39099_value_row_3_col_2">65.0 [49.0, 86.0]</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_33164_value_row_5_col_3">79 (38.5%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_39099_value_row_3_col_3">54.0 [4.00, 95.0]</td>
               
             </tr>
             
         
             
             <tr>
-              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_33164_rowgrouplabel_level_1_3"> Age</td>
+              <td class="rowgrouplabel level_0" class="varlabel" colspan="6" style="padding-left: 0.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_39099_rowgrouplabel_level_0_1"> Section 2</td>
+            </tr>
+            
+            <tr>
+              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_39099_rowgrouplabel_level_1_2"> Gender</td>
             </tr>
             
             
             <tr>
               
-              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_33164_rowlabel_6">Mean (SD)</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_39099_rowlabel_4">Male</td>
               
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_33164_value_row_6_col_0">50.0 (15.9)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39099_value_row_4_col_0">91 (67.9%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_33164_value_row_6_col_1">55.1 (17.9)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39099_value_row_4_col_1">28 (49.1%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_33164_value_row_6_col_2">65.3 (10.9)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39099_value_row_4_col_2">7 (50.0%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_33164_value_row_6_col_3">52.5 (16.7)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39099_value_row_4_col_3">126 (61.5%)</td>
               
             </tr>
             
             <tr>
               
-              <td class="rowlabel" style="border-bottom: 2pt solid black;padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_33164_rowlabel_7">Median [min max]</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_39099_rowlabel_5">Female</td>
               
               
-              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_33164_value_row_7_col_0">52.0 [4.00, 84.0]</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_39099_value_row_5_col_0">43 (32.1%)</td>
               
-              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_33164_value_row_7_col_1">56.0 [14.0, 95.0]</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_39099_value_row_5_col_1">29 (50.9%)</td>
               
-              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_33164_value_row_7_col_2">65.0 [49.0, 86.0]</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_39099_value_row_5_col_2">7 (50.0%)</td>
               
-              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_33164_value_row_7_col_3">54.0 [4.00, 95.0]</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_39099_value_row_5_col_3">79 (38.5%)</td>
+              
+            </tr>
+            
+        
+            
+            <tr>
+              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_39099_rowgrouplabel_level_1_3"> Age</td>
+            </tr>
+            
+            
+            <tr>
+              
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_39099_rowlabel_6">Mean (SD)</td>
+              
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39099_value_row_6_col_0">50.0 (15.9)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39099_value_row_6_col_1">55.1 (17.9)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39099_value_row_6_col_2">65.3 (10.9)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_39099_value_row_6_col_3">52.5 (16.7)</td>
+              
+            </tr>
+            
+            <tr>
+              
+              <td class="rowlabel" style="border-bottom: 2pt solid black;padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_39099_rowlabel_7">Median [min max]</td>
+              
+              
+              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_39099_value_row_7_col_0">52.0 [4.00, 84.0]</td>
+              
+              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_39099_value_row_7_col_1">56.0 [14.0, 95.0]</td>
+              
+              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_39099_value_row_7_col_2">65.0 [49.0, 86.0]</td>
+              
+              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: lightgrey;" id="pyt_39099_value_row_7_col_3">54.0 [4.00, 95.0]</td>
               
             </tr>
             
@@ -671,7 +655,7 @@ to see the code.</p>
         
         <tfoot>
             <tr>
-              <td class="footnote" colspan="6" style="font-size: smaller; padding: 0px; margin: 0px; text-align: left !important; " id="pyt_33164_footnote">&#8224; This is a foot note<br>1.  Another foot note<br>2. Yet another footnote</td>
+              <td class="footnote" colspan="6" style="font-size: smaller; padding: 0px; margin: 0px; text-align: left !important; " id="pyt_39099_footnote">&#8224; This is a foot note<br>1.  Another foot note<br>2. Yet another footnote</td>
             </tr>
         </tfoot>
         
@@ -704,70 +688,70 @@ the styles only for those that we are interested in.</p>
 <div class="Pytable1_div">
     
 
-    <table class="Pytable1" data-quarto-disable-processing="true" style="font-family: Arial, sans-serif; border-collapse: collapse; padding: 0px; margin: 0px;" id="pyt_41499">
+    <table class="Pytable1" data-quarto-disable-processing="true" style="font-family: Arial, sans-serif; border-collapse: collapse; padding: 0px; margin: 0px;" id="pyt_4668">
         
-        <caption class="caption" colspan="6" style="padding: 0px; margin: 0px; text-align: left !important; margin-bottom: 5px;" id="pyt_41499_caption">Table 1: a nice report table with multiple indices and symbols</caption>
+        <caption class="caption" colspan="6" style="padding: 0px; margin: 0px; text-align: left !important; margin-bottom: 5px;" id="pyt_4668_caption">Table 1: a nice report table with multiple indices and symbols</caption>
         
         <thead>
             
             <tr>
                 
-                <th class="superheader level_0" colspan="1" style="border-top: 2pt solid black;border-top: 2pt solid black;border-top: 2pt solid black;border-top: 2pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_41499_superheader_level_0_0"></th>
+                <th class="superheader level_0" colspan="1" style="border-top: 2pt solid black;border-top: 2pt solid black;border-top: 2pt solid black;border-top: 2pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_4668_superheader_level_0_0"></th>
                 
-                <th class="superheader level_0" colspan="3" style="border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_41499_superheader_level_0_1">Specific</th>
+                <th class="superheader level_0" colspan="3" style="border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_4668_superheader_level_0_1">Specific</th>
                 
-                <th class="superheader level_0" colspan="1" style="border-top: 2pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_41499_superheader_level_0_2"></th>
-                
-            </tr>
-            
-            <tr>
-                
-                <th class="superheader level_1" colspan="1" style="padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_41499_superheader_level_1_0"></th>
-                
-                <th class="superheader level_1" colspan="1" style="padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_41499_superheader_level_1_1">Alive &#8224;</th>
-                
-                <th class="superheader level_1" colspan="2" style="border-bottom: 1pt solid black;border-bottom: 1pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_41499_superheader_level_1_2">Death</th>
-                
-                <th class="superheader level_1" colspan="1" style="padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_41499_superheader_level_1_3">Overall</th>
+                <th class="superheader level_0" colspan="1" style="border-top: 2pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_4668_superheader_level_0_2"></th>
                 
             </tr>
             
             <tr>
                 
-                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_41499_header_0">
-                  <span class="headerlabel" id="pyt_41499_headerlabel_0"></span>
+                <th class="superheader level_1" colspan="1" style="padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_4668_superheader_level_1_0"></th>
+                
+                <th class="superheader level_1" colspan="1" style="padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_4668_superheader_level_1_1">Alive &#8224;</th>
+                
+                <th class="superheader level_1" colspan="2" style="border-bottom: 1pt solid black;border-bottom: 1pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_4668_superheader_level_1_2">Death</th>
+                
+                <th class="superheader level_1" colspan="1" style="padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_4668_superheader_level_1_3">Overall</th>
+                
+            </tr>
+            
+            <tr>
+                
+                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_4668_header_0">
+                  <span class="headerlabel" id="pyt_4668_headerlabel_0"></span>
                   
                 </th>
                 
-                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_41499_header_1">
-                  <span class="headerlabel" id="pyt_41499_headerlabel_1"></span>
+                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_4668_header_1">
+                  <span class="headerlabel" id="pyt_4668_headerlabel_1"></span>
                   
                   <br>
-                  <span class="headern" id="pyt_41499_headern_1">(N=134)</span>
+                  <span class="headern" id="pyt_4668_headern_1">(N=134)</span>
                   
                 </th>
                 
-                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_41499_header_2">
-                  <span class="headerlabel" id="pyt_41499_headerlabel_2">Melanoma death</span>
+                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_4668_header_2">
+                  <span class="headerlabel" id="pyt_4668_headerlabel_2">Melanoma death</span>
                   
                   <br>
-                  <span class="headern" id="pyt_41499_headern_2">(N=57)</span>
+                  <span class="headern" id="pyt_4668_headern_2">(N=57)</span>
                   
                 </th>
                 
-                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_41499_header_3">
-                  <span class="headerlabel" id="pyt_41499_headerlabel_3">Non-melanoma death</span>
+                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_4668_header_3">
+                  <span class="headerlabel" id="pyt_4668_headerlabel_3">Non-melanoma death</span>
                   
                   <br>
-                  <span class="headern" id="pyt_41499_headern_3">(N=14)</span>
+                  <span class="headern" id="pyt_4668_headern_3">(N=14)</span>
                   
                 </th>
                 
-                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_41499_header_4">
-                  <span class="headerlabel" id="pyt_41499_headerlabel_4"></span>
+                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_4668_header_4">
+                  <span class="headerlabel" id="pyt_4668_headerlabel_4"></span>
                   
                   <br>
-                  <span class="headern" id="pyt_41499_headern_4">(N=205)</span>
+                  <span class="headern" id="pyt_4668_headern_4">(N=205)</span>
                   
                 </th>
                 
@@ -777,156 +761,156 @@ the styles only for those that we are interested in.</p>
         
             
             <tr>
-              <td class="rowgrouplabel level_0" class="varlabel" colspan="6" style="padding-left: 0.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_41499_rowgrouplabel_level_0_0"> Section 1</td>
+              <td class="rowgrouplabel level_0" class="varlabel" colspan="6" style="padding-left: 0.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_4668_rowgrouplabel_level_0_0"> Section 1</td>
             </tr>
             
             <tr>
-              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_41499_rowgrouplabel_level_1_0"> Gender</td>
-            </tr>
-            
-            
-            <tr>
-              
-              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_41499_rowlabel_0">Male</td>
-              
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_0_col_0">91 (67.9%) <sup>1</sup></td>
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_0_col_1">28 (49.1%)</td>
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_0_col_2">7 (50.0%)</td>
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_0_col_3">126 (61.5%)</td>
-              
-            </tr>
-            
-            <tr>
-              
-              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_41499_rowlabel_1">Female</td>
-              
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_1_col_0">43 (32.1%)</td>
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_1_col_1">29 (50.9%)</td>
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_1_col_2">7 (50.0%)</td>
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: yellow;" id="pyt_41499_value_row_1_col_3">79 (38.5%)</td>
-              
-            </tr>
-            
-        
-            
-            <tr>
-              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_41499_rowgrouplabel_level_1_1"> Age</td>
+              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_4668_rowgrouplabel_level_1_0"> Gender</td>
             </tr>
             
             
             <tr>
               
-              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_41499_rowlabel_2">Mean (SD)</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_4668_rowlabel_0">Male</td>
               
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_2_col_0">50.0 (15.9)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_0_col_0">91 (67.9%) <sup>1</sup></td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_2_col_1">55.1 (17.9)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_0_col_1">28 (49.1%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_2_col_2">65.3 (10.9)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_0_col_2">7 (50.0%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_2_col_3">52.5 (16.7)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_0_col_3">126 (61.5%)</td>
               
             </tr>
             
             <tr>
               
-              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_41499_rowlabel_3">Median [min max]</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_4668_rowlabel_1">Female</td>
               
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_3_col_0">52.0 [4.00, 84.0] <sub>2</sub></td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_1_col_0">43 (32.1%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: yellow;" id="pyt_41499_value_row_3_col_1">56.0 [14.0, 95.0]</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_1_col_1">29 (50.9%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_3_col_2">65.0 [49.0, 86.0]</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_1_col_2">7 (50.0%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_3_col_3">54.0 [4.00, 95.0]</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: yellow;" id="pyt_4668_value_row_1_col_3">79 (38.5%)</td>
               
             </tr>
             
         
             
             <tr>
-              <td class="rowgrouplabel level_0" class="varlabel" colspan="6" style="padding-left: 0.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_41499_rowgrouplabel_level_0_1"> Section 2</td>
-            </tr>
-            
-            <tr>
-              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_41499_rowgrouplabel_level_1_2"> Gender</td>
+              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_4668_rowgrouplabel_level_1_1"> Age</td>
             </tr>
             
             
             <tr>
               
-              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_41499_rowlabel_4">Male</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_4668_rowlabel_2">Mean (SD)</td>
               
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_4_col_0">91 (67.9%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_2_col_0">50.0 (15.9)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_4_col_1">28 (49.1%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_2_col_1">55.1 (17.9)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_4_col_2">7 (50.0%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_2_col_2">65.3 (10.9)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_4_col_3">126 (61.5%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_2_col_3">52.5 (16.7)</td>
               
             </tr>
             
             <tr>
               
-              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_41499_rowlabel_5">Female</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_4668_rowlabel_3">Median [min max]</td>
               
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_5_col_0">43 (32.1%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_3_col_0">52.0 [4.00, 84.0] <sub>2</sub></td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_5_col_1">29 (50.9%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;background-color: yellow;" id="pyt_4668_value_row_3_col_1">56.0 [14.0, 95.0]</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_5_col_2">7 (50.0%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_3_col_2">65.0 [49.0, 86.0]</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_5_col_3">79 (38.5%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_3_col_3">54.0 [4.00, 95.0]</td>
               
             </tr>
             
         
             
             <tr>
-              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_41499_rowgrouplabel_level_1_3"> Age</td>
+              <td class="rowgrouplabel level_0" class="varlabel" colspan="6" style="padding-left: 0.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_4668_rowgrouplabel_level_0_1"> Section 2</td>
+            </tr>
+            
+            <tr>
+              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_4668_rowgrouplabel_level_1_2"> Gender</td>
             </tr>
             
             
             <tr>
               
-              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_41499_rowlabel_6">Mean (SD)</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_4668_rowlabel_4">Male</td>
               
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_6_col_0">50.0 (15.9)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_4_col_0">91 (67.9%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_6_col_1">55.1 (17.9)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_4_col_1">28 (49.1%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_6_col_2">65.3 (10.9)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_4_col_2">7 (50.0%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_6_col_3">52.5 (16.7)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_4_col_3">126 (61.5%)</td>
               
             </tr>
             
             <tr>
               
-              <td class="rowlabel" style="border-bottom: 2pt solid black;padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_41499_rowlabel_7">Median [min max]</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_4668_rowlabel_5">Female</td>
               
               
-              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_7_col_0">52.0 [4.00, 84.0]</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_5_col_0">43 (32.1%)</td>
               
-              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_7_col_1">56.0 [14.0, 95.0]</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_5_col_1">29 (50.9%)</td>
               
-              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_7_col_2">65.0 [49.0, 86.0]</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_5_col_2">7 (50.0%)</td>
               
-              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_41499_value_row_7_col_3">54.0 [4.00, 95.0]</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_5_col_3">79 (38.5%)</td>
+              
+            </tr>
+            
+        
+            
+            <tr>
+              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_4668_rowgrouplabel_level_1_3"> Age</td>
+            </tr>
+            
+            
+            <tr>
+              
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_4668_rowlabel_6">Mean (SD)</td>
+              
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_6_col_0">50.0 (15.9)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_6_col_1">55.1 (17.9)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_6_col_2">65.3 (10.9)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_6_col_3">52.5 (16.7)</td>
+              
+            </tr>
+            
+            <tr>
+              
+              <td class="rowlabel" style="border-bottom: 2pt solid black;padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_4668_rowlabel_7">Median [min max]</td>
+              
+              
+              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_7_col_0">52.0 [4.00, 84.0]</td>
+              
+              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_7_col_1">56.0 [14.0, 95.0]</td>
+              
+              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_7_col_2">65.0 [49.0, 86.0]</td>
+              
+              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_4668_value_row_7_col_3">54.0 [4.00, 95.0]</td>
               
             </tr>
             
@@ -935,7 +919,7 @@ the styles only for those that we are interested in.</p>
         
         <tfoot>
             <tr>
-              <td class="footnote" colspan="6" style="font-size: smaller; padding: 0px; margin: 0px; text-align: left !important; " id="pyt_41499_footnote">&#8224; This is a foot note<br>1.  Another foot note<br>2. Yet another footnote</td>
+              <td class="footnote" colspan="6" style="font-size: smaller; padding: 0px; margin: 0px; text-align: left !important; " id="pyt_4668_footnote">&#8224; This is a foot note<br>1.  Another foot note<br>2. Yet another footnote</td>
             </tr>
         </tfoot>
         
@@ -990,70 +974,70 @@ passing your own customstyles dictionary</p>
 <div class="Pytable1_div">
     
 
-    <table class="Pytable1" data-quarto-disable-processing="true" style="font-family: Arial, sans-serif; border-collapse: collapse; padding: 0px; margin: 0px;" id="pyt_61545">
+    <table class="Pytable1" data-quarto-disable-processing="true" style="font-family: Arial, sans-serif; border-collapse: collapse; padding: 0px; margin: 0px;" id="pyt_2107">
         
-        <caption class="caption" colspan="6" style="padding: 0px; margin: 0px; text-align: left !important; margin-bottom: 5px;color: blue; font-size: larger;" id="pyt_61545_caption">Table 1: a nice report table with multiple indices and symbols</caption>
+        <caption class="caption" colspan="6" style="padding: 0px; margin: 0px; text-align: left !important; margin-bottom: 5px;color: blue; font-size: larger;" id="pyt_2107_caption">Table 1: a nice report table with multiple indices and symbols</caption>
         
         <thead>
             
             <tr>
                 
-                <th class="superheader level_0" colspan="1" style="border-top: 2pt solid black;border-top: 2pt solid black;border-top: 2pt solid black;border-top: 2pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_61545_superheader_level_0_0"></th>
+                <th class="superheader level_0" colspan="1" style="border-top: 2pt solid black;border-top: 2pt solid black;border-top: 2pt solid black;border-top: 2pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_2107_superheader_level_0_0"></th>
                 
-                <th class="superheader level_0" colspan="3" style="border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_61545_superheader_level_0_1">Specific</th>
+                <th class="superheader level_0" colspan="3" style="border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_2107_superheader_level_0_1">Specific</th>
                 
-                <th class="superheader level_0" colspan="1" style="border-top: 2pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_61545_superheader_level_0_2"></th>
-                
-            </tr>
-            
-            <tr>
-                
-                <th class="superheader level_1" colspan="1" style="padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_61545_superheader_level_1_0"></th>
-                
-                <th class="superheader level_1" colspan="1" style="padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_61545_superheader_level_1_1">Alive &#8224;</th>
-                
-                <th class="superheader level_1" colspan="2" style="border-bottom: 1pt solid black;border-bottom: 1pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_61545_superheader_level_1_2">Death</th>
-                
-                <th class="superheader level_1" colspan="1" style="padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_61545_superheader_level_1_3">Overall</th>
+                <th class="superheader level_0" colspan="1" style="border-top: 2pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_2107_superheader_level_0_2"></th>
                 
             </tr>
             
             <tr>
                 
-                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_61545_header_0">
-                  <span class="headerlabel" id="pyt_61545_headerlabel_0"></span>
+                <th class="superheader level_1" colspan="1" style="padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_2107_superheader_level_1_0"></th>
+                
+                <th class="superheader level_1" colspan="1" style="padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_2107_superheader_level_1_1">Alive &#8224;</th>
+                
+                <th class="superheader level_1" colspan="2" style="border-bottom: 1pt solid black;border-bottom: 1pt solid black;padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_2107_superheader_level_1_2">Death</th>
+                
+                <th class="superheader level_1" colspan="1" style="padding: 0.5ex 1.5ex; margin-left: 1.5ex; margin-right: 1.5ex; text-align: center !important; margin: 0px; background-color: white;" id="pyt_2107_superheader_level_1_3">Overall</th>
+                
+            </tr>
+            
+            <tr>
+                
+                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_2107_header_0">
+                  <span class="headerlabel" id="pyt_2107_headerlabel_0"></span>
                   
                 </th>
                 
-                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_61545_header_1">
-                  <span class="headerlabel" id="pyt_61545_headerlabel_1"></span>
+                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_2107_header_1">
+                  <span class="headerlabel" id="pyt_2107_headerlabel_1"></span>
                   
                   <br>
-                  <span class="headern" id="pyt_61545_headern_1">(N=134)</span>
+                  <span class="headern" id="pyt_2107_headern_1">(N=134)</span>
                   
                 </th>
                 
-                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_61545_header_2">
-                  <span class="headerlabel" id="pyt_61545_headerlabel_2">Melanoma death</span>
+                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_2107_header_2">
+                  <span class="headerlabel" id="pyt_2107_headerlabel_2">Melanoma death</span>
                   
                   <br>
-                  <span class="headern" id="pyt_61545_headern_2">(N=57)</span>
+                  <span class="headern" id="pyt_2107_headern_2">(N=57)</span>
                   
                 </th>
                 
-                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_61545_header_3">
-                  <span class="headerlabel" id="pyt_61545_headerlabel_3">Non-melanoma death</span>
+                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_2107_header_3">
+                  <span class="headerlabel" id="pyt_2107_headerlabel_3">Non-melanoma death</span>
                   
                   <br>
-                  <span class="headern" id="pyt_61545_headern_3">(N=14)</span>
+                  <span class="headern" id="pyt_2107_headern_3">(N=14)</span>
                   
                 </th>
                 
-                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_61545_header_4">
-                  <span class="headerlabel" id="pyt_61545_headerlabel_4"></span>
+                <th class="header" style="border-bottom: 1pt solid black; text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white;" id="pyt_2107_header_4">
+                  <span class="headerlabel" id="pyt_2107_headerlabel_4"></span>
                   
                   <br>
-                  <span class="headern" id="pyt_61545_headern_4">(N=205)</span>
+                  <span class="headern" id="pyt_2107_headern_4">(N=205)</span>
                   
                 </th>
                 
@@ -1063,156 +1047,156 @@ passing your own customstyles dictionary</p>
         
             
             <tr>
-              <td class="rowgrouplabel level_0" class="varlabel" colspan="6" style="padding-left: 0.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_61545_rowgrouplabel_level_0_0"> Section 1</td>
+              <td class="rowgrouplabel level_0" class="varlabel" colspan="6" style="padding-left: 0.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_2107_rowgrouplabel_level_0_0"> Section 1</td>
             </tr>
             
             <tr>
-              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_61545_rowgrouplabel_level_1_0"> Gender</td>
-            </tr>
-            
-            
-            <tr>
-              
-              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_61545_rowlabel_0">Male</td>
-              
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_0_col_0">91 (67.9%) <sup>1</sup></td>
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_0_col_1">28 (49.1%)</td>
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_0_col_2">7 (50.0%)</td>
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_0_col_3">126 (61.5%)</td>
-              
-            </tr>
-            
-            <tr>
-              
-              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_61545_rowlabel_1">Female</td>
-              
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_1_col_0">43 (32.1%)</td>
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_1_col_1">29 (50.9%)</td>
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_1_col_2">7 (50.0%)</td>
-              
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_1_col_3">79 (38.5%)</td>
-              
-            </tr>
-            
-        
-            
-            <tr>
-              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_61545_rowgrouplabel_level_1_1"> Age</td>
+              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_2107_rowgrouplabel_level_1_0"> Gender</td>
             </tr>
             
             
             <tr>
               
-              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_61545_rowlabel_2">Mean (SD)</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_2107_rowlabel_0">Male</td>
               
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_2_col_0">50.0 (15.9)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_0_col_0">91 (67.9%) <sup>1</sup></td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_2_col_1">55.1 (17.9)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_0_col_1">28 (49.1%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_2_col_2">65.3 (10.9)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_0_col_2">7 (50.0%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_2_col_3">52.5 (16.7)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_0_col_3">126 (61.5%)</td>
               
             </tr>
             
             <tr>
               
-              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_61545_rowlabel_3">Median [min max]</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_2107_rowlabel_1">Female</td>
               
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_3_col_0">52.0 [4.00, 84.0] <sub>2</sub></td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_1_col_0">43 (32.1%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_3_col_1">56.0 [14.0, 95.0]</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_1_col_1">29 (50.9%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_3_col_2">65.0 [49.0, 86.0]</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_1_col_2">7 (50.0%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_3_col_3">54.0 [4.00, 95.0]</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_1_col_3">79 (38.5%)</td>
               
             </tr>
             
         
             
             <tr>
-              <td class="rowgrouplabel level_0" class="varlabel" colspan="6" style="padding-left: 0.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_61545_rowgrouplabel_level_0_1"> Section 2</td>
-            </tr>
-            
-            <tr>
-              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_61545_rowgrouplabel_level_1_2"> Gender</td>
+              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_2107_rowgrouplabel_level_1_1"> Age</td>
             </tr>
             
             
             <tr>
               
-              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_61545_rowlabel_4">Male</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_2107_rowlabel_2">Mean (SD)</td>
               
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_4_col_0">91 (67.9%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_2_col_0">50.0 (15.9)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_4_col_1">28 (49.1%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_2_col_1">55.1 (17.9)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_4_col_2">7 (50.0%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_2_col_2">65.3 (10.9)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_4_col_3">126 (61.5%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_2_col_3">52.5 (16.7)</td>
               
             </tr>
             
             <tr>
               
-              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_61545_rowlabel_5">Female</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_2107_rowlabel_3">Median [min max]</td>
               
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_5_col_0">43 (32.1%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_3_col_0">52.0 [4.00, 84.0] <sub>2</sub></td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_5_col_1">29 (50.9%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_3_col_1">56.0 [14.0, 95.0]</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_5_col_2">7 (50.0%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_3_col_2">65.0 [49.0, 86.0]</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_5_col_3">79 (38.5%)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_3_col_3">54.0 [4.00, 95.0]</td>
               
             </tr>
             
         
             
             <tr>
-              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_61545_rowgrouplabel_level_1_3"> Age</td>
+              <td class="rowgrouplabel level_0" class="varlabel" colspan="6" style="padding-left: 0.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_2107_rowgrouplabel_level_0_1"> Section 2</td>
+            </tr>
+            
+            <tr>
+              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_2107_rowgrouplabel_level_1_2"> Gender</td>
             </tr>
             
             
             <tr>
               
-              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_61545_rowlabel_6">Mean (SD)</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_2107_rowlabel_4">Male</td>
               
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_6_col_0">50.0 (15.9)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_4_col_0">91 (67.9%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_6_col_1">55.1 (17.9)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_4_col_1">28 (49.1%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_6_col_2">65.3 (10.9)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_4_col_2">7 (50.0%)</td>
               
-              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_6_col_3">52.5 (16.7)</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_4_col_3">126 (61.5%)</td>
               
             </tr>
             
             <tr>
               
-              <td class="rowlabel" style="border-bottom: 2pt solid black;padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_61545_rowlabel_7">Median [min max]</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_2107_rowlabel_5">Female</td>
               
               
-              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_7_col_0">52.0 [4.00, 84.0]</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_5_col_0">43 (32.1%)</td>
               
-              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_7_col_1">56.0 [14.0, 95.0]</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_5_col_1">29 (50.9%)</td>
               
-              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_7_col_2">65.0 [49.0, 86.0]</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_5_col_2">7 (50.0%)</td>
               
-              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_61545_value_row_7_col_3">54.0 [4.00, 95.0]</td>
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_5_col_3">79 (38.5%)</td>
+              
+            </tr>
+            
+        
+            
+            <tr>
+              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex;font-weight: bold; text-align: left !important;  white-space: nowrap; background-color: white;" id="pyt_2107_rowgrouplabel_level_1_3"> Age</td>
+            </tr>
+            
+            
+            <tr>
+              
+              <td class="rowlabel" style="padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_2107_rowlabel_6">Mean (SD)</td>
+              
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_6_col_0">50.0 (15.9)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_6_col_1">55.1 (17.9)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_6_col_2">65.3 (10.9)</td>
+              
+              <td class="rowvalue" style="text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_6_col_3">52.5 (16.7)</td>
+              
+            </tr>
+            
+            <tr>
+              
+              <td class="rowlabel" style="border-bottom: 2pt solid black;padding-left: 4.5ex;padding-top: 0.5ex; padding-right:1.5ex; padding-bottom:0.5ex; text-align: left !important; white-space: nowrap; background-color: white;" id="pyt_2107_rowlabel_7">Median [min max]</td>
+              
+              
+              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_7_col_0">52.0 [4.00, 84.0]</td>
+              
+              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_7_col_1">56.0 [14.0, 95.0]</td>
+              
+              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_7_col_2">65.0 [49.0, 86.0]</td>
+              
+              <td class="rowvalue" style="border-bottom: 2pt solid black;text-align: center !important; padding: 0.5ex 1.5ex; margin: 0px; background-color: white; white-space: nowrap;" id="pyt_2107_value_row_7_col_3">54.0 [4.00, 95.0]</td>
               
             </tr>
             
@@ -1221,7 +1205,7 @@ passing your own customstyles dictionary</p>
         
         <tfoot>
             <tr>
-              <td class="footnote" colspan="6" style="font-size: smaller; padding: 0px; margin: 0px; text-align: left !important; " id="pyt_61545_footnote">&#8224; This is a foot note<br>1.  Another foot note<br>2. Yet another footnote</td>
+              <td class="footnote" colspan="6" style="font-size: smaller; padding: 0px; margin: 0px; text-align: left !important; " id="pyt_2107_footnote">&#8224; This is a foot note<br>1.  Another foot note<br>2. Yet another footnote</td>
             </tr>
         </tfoot>
         
@@ -1248,70 +1232,70 @@ once we get rid of our own formatting.</p>
 <div class="Pytable1_div">
     
 
-    <table class="Pytable1" data-quarto-disable-processing="true" style="" id="pyt_30344">
+    <table class="Pytable1" data-quarto-disable-processing="true" style="" id="pyt_37621">
         
-        <caption class="caption" colspan="6" style="" id="pyt_30344_caption">Table 1: a nice report table with multiple indices and symbols</caption>
+        <caption class="caption" colspan="6" style="" id="pyt_37621_caption">Table 1: a nice report table with multiple indices and symbols</caption>
         
         <thead>
             
             <tr>
                 
-                <th class="superheader level_0" colspan="1" style="border-top: 2pt solid black;border-top: 2pt solid black;border-top: 2pt solid black;border-top: 2pt solid black;" id="pyt_30344_superheader_level_0_0"></th>
+                <th class="superheader level_0" colspan="1" style="border-top: 2pt solid black;border-top: 2pt solid black;border-top: 2pt solid black;border-top: 2pt solid black;" id="pyt_37621_superheader_level_0_0"></th>
                 
-                <th class="superheader level_0" colspan="3" style="border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;" id="pyt_30344_superheader_level_0_1">Specific</th>
+                <th class="superheader level_0" colspan="3" style="border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;border-bottom: 1pt solid black;border-top: 2pt solid black;" id="pyt_37621_superheader_level_0_1">Specific</th>
                 
-                <th class="superheader level_0" colspan="1" style="border-top: 2pt solid black;" id="pyt_30344_superheader_level_0_2"></th>
-                
-            </tr>
-            
-            <tr>
-                
-                <th class="superheader level_1" colspan="1" style="" id="pyt_30344_superheader_level_1_0"></th>
-                
-                <th class="superheader level_1" colspan="1" style="" id="pyt_30344_superheader_level_1_1">Alive &#8224;</th>
-                
-                <th class="superheader level_1" colspan="2" style="border-bottom: 1pt solid black;border-bottom: 1pt solid black;" id="pyt_30344_superheader_level_1_2">Death</th>
-                
-                <th class="superheader level_1" colspan="1" style="" id="pyt_30344_superheader_level_1_3">Overall</th>
+                <th class="superheader level_0" colspan="1" style="border-top: 2pt solid black;" id="pyt_37621_superheader_level_0_2"></th>
                 
             </tr>
             
             <tr>
                 
-                <th class="header" style="" id="pyt_30344_header_0">
-                  <span class="headerlabel" id="pyt_30344_headerlabel_0"></span>
+                <th class="superheader level_1" colspan="1" style="" id="pyt_37621_superheader_level_1_0"></th>
+                
+                <th class="superheader level_1" colspan="1" style="" id="pyt_37621_superheader_level_1_1">Alive &#8224;</th>
+                
+                <th class="superheader level_1" colspan="2" style="border-bottom: 1pt solid black;border-bottom: 1pt solid black;" id="pyt_37621_superheader_level_1_2">Death</th>
+                
+                <th class="superheader level_1" colspan="1" style="" id="pyt_37621_superheader_level_1_3">Overall</th>
+                
+            </tr>
+            
+            <tr>
+                
+                <th class="header" style="" id="pyt_37621_header_0">
+                  <span class="headerlabel" id="pyt_37621_headerlabel_0"></span>
                   
                 </th>
                 
-                <th class="header" style="" id="pyt_30344_header_1">
-                  <span class="headerlabel" id="pyt_30344_headerlabel_1"></span>
+                <th class="header" style="" id="pyt_37621_header_1">
+                  <span class="headerlabel" id="pyt_37621_headerlabel_1"></span>
                   
                   <br>
-                  <span class="headern" id="pyt_30344_headern_1">(N=134)</span>
+                  <span class="headern" id="pyt_37621_headern_1">(N=134)</span>
                   
                 </th>
                 
-                <th class="header" style="" id="pyt_30344_header_2">
-                  <span class="headerlabel" id="pyt_30344_headerlabel_2">Melanoma death</span>
+                <th class="header" style="" id="pyt_37621_header_2">
+                  <span class="headerlabel" id="pyt_37621_headerlabel_2">Melanoma death</span>
                   
                   <br>
-                  <span class="headern" id="pyt_30344_headern_2">(N=57)</span>
+                  <span class="headern" id="pyt_37621_headern_2">(N=57)</span>
                   
                 </th>
                 
-                <th class="header" style="" id="pyt_30344_header_3">
-                  <span class="headerlabel" id="pyt_30344_headerlabel_3">Non-melanoma death</span>
+                <th class="header" style="" id="pyt_37621_header_3">
+                  <span class="headerlabel" id="pyt_37621_headerlabel_3">Non-melanoma death</span>
                   
                   <br>
-                  <span class="headern" id="pyt_30344_headern_3">(N=14)</span>
+                  <span class="headern" id="pyt_37621_headern_3">(N=14)</span>
                   
                 </th>
                 
-                <th class="header" style="" id="pyt_30344_header_4">
-                  <span class="headerlabel" id="pyt_30344_headerlabel_4"></span>
+                <th class="header" style="" id="pyt_37621_header_4">
+                  <span class="headerlabel" id="pyt_37621_headerlabel_4"></span>
                   
                   <br>
-                  <span class="headern" id="pyt_30344_headern_4">(N=205)</span>
+                  <span class="headern" id="pyt_37621_headern_4">(N=205)</span>
                   
                 </th>
                 
@@ -1321,156 +1305,156 @@ once we get rid of our own formatting.</p>
         
             
             <tr>
-              <td class="rowgrouplabel level_0" class="varlabel" colspan="6" style="padding-left: 0.5ex;" id="pyt_30344_rowgrouplabel_level_0_0"> Section 1</td>
+              <td class="rowgrouplabel level_0" class="varlabel" colspan="6" style="padding-left: 0.5ex;" id="pyt_37621_rowgrouplabel_level_0_0"> Section 1</td>
             </tr>
             
             <tr>
-              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;" id="pyt_30344_rowgrouplabel_level_1_0"> Gender</td>
-            </tr>
-            
-            
-            <tr>
-              
-              <td class="rowlabel" style="padding-left: 4.5ex;" id="pyt_30344_rowlabel_0">Male</td>
-              
-              
-              <td class="rowvalue" style="" id="pyt_30344_value_row_0_col_0">91 (67.9%) <sup>1</sup></td>
-              
-              <td class="rowvalue" style="" id="pyt_30344_value_row_0_col_1">28 (49.1%)</td>
-              
-              <td class="rowvalue" style="" id="pyt_30344_value_row_0_col_2">7 (50.0%)</td>
-              
-              <td class="rowvalue" style="" id="pyt_30344_value_row_0_col_3">126 (61.5%)</td>
-              
-            </tr>
-            
-            <tr>
-              
-              <td class="rowlabel" style="padding-left: 4.5ex;" id="pyt_30344_rowlabel_1">Female</td>
-              
-              
-              <td class="rowvalue" style="" id="pyt_30344_value_row_1_col_0">43 (32.1%)</td>
-              
-              <td class="rowvalue" style="" id="pyt_30344_value_row_1_col_1">29 (50.9%)</td>
-              
-              <td class="rowvalue" style="" id="pyt_30344_value_row_1_col_2">7 (50.0%)</td>
-              
-              <td class="rowvalue" style="" id="pyt_30344_value_row_1_col_3">79 (38.5%)</td>
-              
-            </tr>
-            
-        
-            
-            <tr>
-              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;" id="pyt_30344_rowgrouplabel_level_1_1"> Age</td>
+              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;" id="pyt_37621_rowgrouplabel_level_1_0"> Gender</td>
             </tr>
             
             
             <tr>
               
-              <td class="rowlabel" style="padding-left: 4.5ex;" id="pyt_30344_rowlabel_2">Mean (SD)</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;" id="pyt_37621_rowlabel_0">Male</td>
               
               
-              <td class="rowvalue" style="" id="pyt_30344_value_row_2_col_0">50.0 (15.9)</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_0_col_0">91 (67.9%) <sup>1</sup></td>
               
-              <td class="rowvalue" style="" id="pyt_30344_value_row_2_col_1">55.1 (17.9)</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_0_col_1">28 (49.1%)</td>
               
-              <td class="rowvalue" style="" id="pyt_30344_value_row_2_col_2">65.3 (10.9)</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_0_col_2">7 (50.0%)</td>
               
-              <td class="rowvalue" style="" id="pyt_30344_value_row_2_col_3">52.5 (16.7)</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_0_col_3">126 (61.5%)</td>
               
             </tr>
             
             <tr>
               
-              <td class="rowlabel" style="padding-left: 4.5ex;" id="pyt_30344_rowlabel_3">Median [min max]</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;" id="pyt_37621_rowlabel_1">Female</td>
               
               
-              <td class="rowvalue" style="" id="pyt_30344_value_row_3_col_0">52.0 [4.00, 84.0] <sub>2</sub></td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_1_col_0">43 (32.1%)</td>
               
-              <td class="rowvalue" style="" id="pyt_30344_value_row_3_col_1">56.0 [14.0, 95.0]</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_1_col_1">29 (50.9%)</td>
               
-              <td class="rowvalue" style="" id="pyt_30344_value_row_3_col_2">65.0 [49.0, 86.0]</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_1_col_2">7 (50.0%)</td>
               
-              <td class="rowvalue" style="" id="pyt_30344_value_row_3_col_3">54.0 [4.00, 95.0]</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_1_col_3">79 (38.5%)</td>
               
             </tr>
             
         
             
             <tr>
-              <td class="rowgrouplabel level_0" class="varlabel" colspan="6" style="padding-left: 0.5ex;" id="pyt_30344_rowgrouplabel_level_0_1"> Section 2</td>
-            </tr>
-            
-            <tr>
-              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;" id="pyt_30344_rowgrouplabel_level_1_2"> Gender</td>
+              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;" id="pyt_37621_rowgrouplabel_level_1_1"> Age</td>
             </tr>
             
             
             <tr>
               
-              <td class="rowlabel" style="padding-left: 4.5ex;" id="pyt_30344_rowlabel_4">Male</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;" id="pyt_37621_rowlabel_2">Mean (SD)</td>
               
               
-              <td class="rowvalue" style="" id="pyt_30344_value_row_4_col_0">91 (67.9%)</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_2_col_0">50.0 (15.9)</td>
               
-              <td class="rowvalue" style="" id="pyt_30344_value_row_4_col_1">28 (49.1%)</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_2_col_1">55.1 (17.9)</td>
               
-              <td class="rowvalue" style="" id="pyt_30344_value_row_4_col_2">7 (50.0%)</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_2_col_2">65.3 (10.9)</td>
               
-              <td class="rowvalue" style="" id="pyt_30344_value_row_4_col_3">126 (61.5%)</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_2_col_3">52.5 (16.7)</td>
               
             </tr>
             
             <tr>
               
-              <td class="rowlabel" style="padding-left: 4.5ex;" id="pyt_30344_rowlabel_5">Female</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;" id="pyt_37621_rowlabel_3">Median [min max]</td>
               
               
-              <td class="rowvalue" style="" id="pyt_30344_value_row_5_col_0">43 (32.1%)</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_3_col_0">52.0 [4.00, 84.0] <sub>2</sub></td>
               
-              <td class="rowvalue" style="" id="pyt_30344_value_row_5_col_1">29 (50.9%)</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_3_col_1">56.0 [14.0, 95.0]</td>
               
-              <td class="rowvalue" style="" id="pyt_30344_value_row_5_col_2">7 (50.0%)</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_3_col_2">65.0 [49.0, 86.0]</td>
               
-              <td class="rowvalue" style="" id="pyt_30344_value_row_5_col_3">79 (38.5%)</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_3_col_3">54.0 [4.00, 95.0]</td>
               
             </tr>
             
         
             
             <tr>
-              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;" id="pyt_30344_rowgrouplabel_level_1_3"> Age</td>
+              <td class="rowgrouplabel level_0" class="varlabel" colspan="6" style="padding-left: 0.5ex;" id="pyt_37621_rowgrouplabel_level_0_1"> Section 2</td>
+            </tr>
+            
+            <tr>
+              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;" id="pyt_37621_rowgrouplabel_level_1_2"> Gender</td>
             </tr>
             
             
             <tr>
               
-              <td class="rowlabel" style="padding-left: 4.5ex;" id="pyt_30344_rowlabel_6">Mean (SD)</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;" id="pyt_37621_rowlabel_4">Male</td>
               
               
-              <td class="rowvalue" style="" id="pyt_30344_value_row_6_col_0">50.0 (15.9)</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_4_col_0">91 (67.9%)</td>
               
-              <td class="rowvalue" style="" id="pyt_30344_value_row_6_col_1">55.1 (17.9)</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_4_col_1">28 (49.1%)</td>
               
-              <td class="rowvalue" style="" id="pyt_30344_value_row_6_col_2">65.3 (10.9)</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_4_col_2">7 (50.0%)</td>
               
-              <td class="rowvalue" style="" id="pyt_30344_value_row_6_col_3">52.5 (16.7)</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_4_col_3">126 (61.5%)</td>
               
             </tr>
             
             <tr>
               
-              <td class="rowlabel" style="border-bottom: 2pt solid black;padding-left: 4.5ex;" id="pyt_30344_rowlabel_7">Median [min max]</td>
+              <td class="rowlabel" style="padding-left: 4.5ex;" id="pyt_37621_rowlabel_5">Female</td>
               
               
-              <td class="rowvalue" style="border-bottom: 2pt solid black;" id="pyt_30344_value_row_7_col_0">52.0 [4.00, 84.0]</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_5_col_0">43 (32.1%)</td>
               
-              <td class="rowvalue" style="border-bottom: 2pt solid black;" id="pyt_30344_value_row_7_col_1">56.0 [14.0, 95.0]</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_5_col_1">29 (50.9%)</td>
               
-              <td class="rowvalue" style="border-bottom: 2pt solid black;" id="pyt_30344_value_row_7_col_2">65.0 [49.0, 86.0]</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_5_col_2">7 (50.0%)</td>
               
-              <td class="rowvalue" style="border-bottom: 2pt solid black;" id="pyt_30344_value_row_7_col_3">54.0 [4.00, 95.0]</td>
+              <td class="rowvalue" style="" id="pyt_37621_value_row_5_col_3">79 (38.5%)</td>
+              
+            </tr>
+            
+        
+            
+            <tr>
+              <td class="rowgrouplabel level_1" class="varlabel" colspan="6" style="padding-left: 2.5ex;" id="pyt_37621_rowgrouplabel_level_1_3"> Age</td>
+            </tr>
+            
+            
+            <tr>
+              
+              <td class="rowlabel" style="padding-left: 4.5ex;" id="pyt_37621_rowlabel_6">Mean (SD)</td>
+              
+              
+              <td class="rowvalue" style="" id="pyt_37621_value_row_6_col_0">50.0 (15.9)</td>
+              
+              <td class="rowvalue" style="" id="pyt_37621_value_row_6_col_1">55.1 (17.9)</td>
+              
+              <td class="rowvalue" style="" id="pyt_37621_value_row_6_col_2">65.3 (10.9)</td>
+              
+              <td class="rowvalue" style="" id="pyt_37621_value_row_6_col_3">52.5 (16.7)</td>
+              
+            </tr>
+            
+            <tr>
+              
+              <td class="rowlabel" style="border-bottom: 2pt solid black;padding-left: 4.5ex;" id="pyt_37621_rowlabel_7">Median [min max]</td>
+              
+              
+              <td class="rowvalue" style="border-bottom: 2pt solid black;" id="pyt_37621_value_row_7_col_0">52.0 [4.00, 84.0]</td>
+              
+              <td class="rowvalue" style="border-bottom: 2pt solid black;" id="pyt_37621_value_row_7_col_1">56.0 [14.0, 95.0]</td>
+              
+              <td class="rowvalue" style="border-bottom: 2pt solid black;" id="pyt_37621_value_row_7_col_2">65.0 [49.0, 86.0]</td>
+              
+              <td class="rowvalue" style="border-bottom: 2pt solid black;" id="pyt_37621_value_row_7_col_3">54.0 [4.00, 95.0]</td>
               
             </tr>
             
@@ -1479,7 +1463,7 @@ once we get rid of our own formatting.</p>
         
         <tfoot>
             <tr>
-              <td class="footnote" colspan="6" style="" id="pyt_30344_footnote">&#8224; This is a foot note<br>1.  Another foot note<br>2. Yet another footnote</td>
+              <td class="footnote" colspan="6" style="" id="pyt_37621_footnote">&#8224; This is a foot note<br>1.  Another foot note<br>2. Yet another footnote</td>
             </tr>
         </tfoot>
         
@@ -1773,14 +1757,16 @@ The class of the table itself is “table”</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styles-for-values">Styles for values</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styles-for-other-elements-with-customstyles">Styles for other elements with customstyles</a></li>
@@ -1833,8 +1819,8 @@ By Otto Fajardo
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

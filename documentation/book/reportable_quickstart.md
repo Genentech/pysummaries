@@ -55,7 +55,7 @@ df = pd.DataFrame(nums, columns=pd.MultiIndex.from_tuples(cols), index=pd.MultiI
 ```
 
 ```{code-cell}
-from IPython.core.display import display 
+from IPython.display import display
 
 display(df)
 ```
