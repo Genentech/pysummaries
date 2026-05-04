@@ -180,6 +180,8 @@ def extract_multibodyblocks(indexes, df, value_styles, styles, tabid):
         #row labels
         *rowgroup_labels, currow_label = rowlabel
         if (rowgroup_labels != lastblock_index and lastblock_index is not None) or cnt==len(df):
+            if lastblock_index is None:
+                lastblock_index = rowgroup_labels
             rowgroupstyle = styles.get("rowgrouplabel")
             titles = [RowGroupLabel(x, tabid, level, y, rowgroup_cnts, style=rowgroupstyle) for level,(x,y) in enumerate(zip(lastblock_index, labels_paddings))]
             # prune 
