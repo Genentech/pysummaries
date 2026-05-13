@@ -437,6 +437,77 @@ class TestIntegration(unittest.TestCase):
 # ---------------------------------------------------------------------------
 # HTML content tests using BeautifulSoup
 # ---------------------------------------------------------------------------
+class TestEdgeCases(unittest.TestCase):
+    """Tests for edge cases and bug fixes."""
+
+    def test_bool_column_single_value(self):
+        """Boolean column with only one unique value should not crash.
+
+        Regression test: when the summary DataFrame has a single row,
+        cnt==len(df) on the first iteration while lastblock_index is still
+        None, causing a TypeError in extract_multibodyblocks.
+        """
+        df = pd.DataFrame({
+            "flag": [True, True, True, True],
+            "group": ["A", "A", "B", "B"],
+        })
+        result = pysummaries.get_table_summary(
+            df, strata="group", columns_include=["flag", "group"],
+            show_overall=False
+        )
+        self.assertIsNotNone(result)
+
+    def test_decimal_column_treated_as_numeric(self):
+        """Columns containing decimal.Decimal values should be treated as numeric."""
+        from decimal import Decimal
+        df = pd.DataFrame({
+            "value": [Decimal("12.5"), Decimal("24.3"), Decimal("6.1"), Decimal("18.7")],
+            "group": ["A", "A", "B", "B"],
+        })
+        col_types = detect_df_col_types(df)
+        self.assertEqual(col_types["value"], "numerical")
+
+    def test_decimal_column_summary(self):
+        """Decimal columns should produce numeric summaries (Mean, Median, etc.)."""
+        from decimal import Decimal
+        df = pd.DataFrame({
+            "value": [Decimal("12.5"), Decimal("24.3"), Decimal("6.1"), Decimal("18.7")],
+            "group": ["A", "A", "B", "B"],
+        })
+        result, _ = pysummaries.calculate_table_summary(
+            df, strata="group", columns_include=["value", "group"],
+            show_overall=False
+        )
+        # Numeric summaries have "Mean (SD)" as a row label
+        self.assertIn("Mean (SD)", result.index.get_level_values(-1))
+
+    def test_decimal_column_polars(self):
+        """Polars Decimal columns should produce numeric summaries."""
+        from decimal import Decimal
+        df = pl.DataFrame({
+            "value": [Decimal("12.5"), Decimal("24.3"), Decimal("6.1"), Decimal("18.7")],
+            "group": ["A", "A", "B", "B"],
+        })
+        result, _ = pysummaries.calculate_table_summary(
+            df, strata="group", columns_include=["value", "group"],
+            show_overall=False
+        )
+        self.assertIn("Mean (SD)", result.index.get_level_values(-1))
+
+    def test_decimal_column_pyarrow(self):
+        """PyArrow Decimal columns should produce numeric summaries."""
+        from decimal import Decimal
+        table = pa.table({
+            "value": pa.array([Decimal("12.5"), Decimal("24.3"), Decimal("6.1"), Decimal("18.7")]),
+            "group": ["A", "A", "B", "B"],
+        })
+        result, _ = pysummaries.calculate_table_summary(
+            table, strata="group", columns_include=["value", "group"],
+            show_overall=False
+        )
+        self.assertIn("Mean (SD)", result.index.get_level_values(-1))
+
+
 class TestHTMLContent(unittest.TestCase):
 
     def setUp(self):

@@ -13,6 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # #############################################################################
+from decimal import Decimal
+
 import narwhals as nw
 import pandas as pd
 import numpy as np
@@ -41,7 +43,7 @@ def _classify_object_col(df, col_name):
         return "categorical"
     if curtype == str:
         return "categorical"
-    if np.issubdtype(type(col.iloc[0]), np.number) or isinstance(col.iloc[0], (int, float)):
+    if np.issubdtype(type(col.iloc[0]), np.number) or isinstance(col.iloc[0], (int, float, Decimal)):
         return "numerical"
     return "categorical"
 

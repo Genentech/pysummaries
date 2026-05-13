@@ -179,6 +179,11 @@ def calculate_table_summary(df, strata=None, show_overall=True, columns_labels=N
     coltypes = detect_df_col_types(df)
     if not isinstance(df, pd.DataFrame):
         df = nw.from_native(df).to_pandas()
+    # Convert object columns classified as numerical (e.g. decimal.Decimal) to
+    # a numeric dtype so that pandas can compute stats on them.
+    for col_name, col_type in coltypes.items():
+        if col_type == "numerical" and df[col_name].dtype == object:
+            df[col_name] = pd.to_numeric(df[col_name], errors="coerce")
     colnames = df.columns.to_list()
     strat_cats = list()
     if strata is not None:

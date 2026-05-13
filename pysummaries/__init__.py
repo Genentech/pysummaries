@@ -30,4 +30,4 @@ __all__ = ['get_table_summary',
            'pandas_to_report_html', 'get_styles', 'Pandas2HTMLSummaryTable',
            'PySummariesException']
 
-__version__ = '0.0.2'
+__version__ = '0.0.3'
