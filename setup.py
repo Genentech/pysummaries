@@ -28,7 +28,7 @@ or our [project homepage](https://github.com/Genentech/pysummaries)
 
 setup(
     name="pysummaries",
-    version='0.0.2',
+    version='0.0.3',
     author="Otto Fajardo",
     author_email="pleasecontactviagithub@notvalid.com",
     description="Produce table summaries from pandas, polars or PyArrow dataframes",

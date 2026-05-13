@@ -1,3 +1,7 @@
+# 0.0.3
+* Fixed crash when a boolean column contains only one unique value (e.g., all True) and the table is rendered with the native backend.
+* Fixed object columns containing decimal.Decimal values (e.g., from Amazon Redshift) being incorrectly treated as categorical instead of numerical.
+
 # 0.0.2
 * Introduced narwhals as dependency, adds support for pandas 3, polars,
 pyarrow
